@@ -7,8 +7,6 @@ namespace FileDateTime_Manipulator
 {
 	public partial class FdtmForm : Form
 	{
-		private FileInfo fileInfo;
-
 		#region Assemblyattributaccessoren
 
 		/// <summary>
@@ -101,18 +99,43 @@ namespace FileDateTime_Manipulator
 		{
 		}
 
+		#region Click-Eventhandler
+
 		private void ButtonSelectFile_Click(object sender, EventArgs e)
 		{
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
 				textBoxPath.Text = openFileDialog.FileName;
-				textBoxCreationDate.Text = File.GetCreationTime(path: openFileDialog.FileName).ToString();
-				textBoxLastAccessDate.Text = File.GetLastAccessTime(path: openFileDialog.FileName).ToString();
-				textBoxLastWriteDate.Text = File.GetLastWriteTime(path: openFileDialog.FileName).ToString();
+				RadioButtonCreationDateLocalTime_CheckedChanged(sender: sender, e: e);
+				RadioButtonLastAccessDateLocalTime_CheckedChanged(sender: sender, e: e);
+				RadioButtonLastWriteDateLocalTime_CheckedChanged(sender: sender, e: e);
+
+				radioButtonCreationDateLocalTime.Enabled = true;
+				radioButtonCreationDateUtc.Enabled = true;
+				radioButtonLastAccessDateLocalTime.Enabled = true;
+				radioButtonLastAccessDateUtc.Enabled = true;
+				radioButtonLastWriteDateLocalTime.Enabled = true;
+				radioButtonLastWriteDateUtc.Enabled = true;
+
+				radioButtonCreationDateLocalTime.Checked = true;
+				radioButtonLastAccessDateLocalTime.Checked = true;
+				radioButtonLastWriteDateLocalTime.Checked = true;
+
+				labelNewCreationDate.Enabled = true;
+				labelNewAccessDate.Enabled = true;
+				labelNewWriteDate.Enabled = true;
 
 				dateTimePickerCreated.Enabled = true;
 				dateTimePickerAccessed.Enabled = true;
 				dateTimePickerWrited.Enabled = true;
+
+				radioButtonNewCreationDateLocalTime.Enabled = true;
+				radioButtonNewCreationDateUtc.Enabled = true;
+				radioButtonNewLastAccessDateLocalTime.Enabled = true;
+				radioButtonNewLastAccessDateUtc.Enabled = true;
+				radioButtonNewLastWriteDateLocalTime.Enabled = true;
+				radioButtonNewLastWriteDateUtc.Enabled = true;
+
 				buttonApply.Enabled = true;
 			}
 		}
@@ -120,17 +143,47 @@ namespace FileDateTime_Manipulator
 		private void ButtonApply_Click(object sender, EventArgs e)
 		{
 			DateTime
-				creationTime = dateTimePickerCreated.Value,
-				lastAccessTime = dateTimePickerCreated.Value,
-				lastWriteTime = dateTimePickerCreated.Value;
+				creationTime = dateTimePickerWrited.Value,
+				lastAccessTime = dateTimePickerWrited.Value,
+				lastWriteTime = dateTimePickerWrited.Value;
 
 			if (dateTimePickerCreated.Checked) File.SetCreationTime(path: textBoxPath.Text, creationTime: creationTime);
 			if (dateTimePickerAccessed.Checked) File.SetLastAccessTime(path: textBoxPath.Text, lastAccessTime: lastAccessTime);
 			if (dateTimePickerWrited.Checked) File.SetLastWriteTime(path: textBoxPath.Text, lastWriteTime: lastWriteTime);
 
-			textBoxCreationDate.Text = File.GetCreationTime(path: textBoxPath.Text).ToString();
-			textBoxLastAccessDate.Text = File.GetLastAccessTime(path: textBoxPath.Text).ToString();
-			textBoxLastWriteDate.Text = File.GetLastWriteTime(path: textBoxPath.Text).ToString();
+			radioButtonCreationDateLocalTime.Checked = radioButtonNewCreationDateLocalTime.Checked;
+			radioButtonCreationDateUtc.Checked = radioButtonNewCreationDateUtc.Checked;
+			radioButtonLastAccessDateLocalTime.Checked = radioButtonNewLastAccessDateLocalTime.Checked;
+			radioButtonLastAccessDateUtc.Checked = radioButtonNewLastAccessDateUtc.Checked;
+			radioButtonLastWriteDateLocalTime.Checked = radioButtonNewLastWriteDateLocalTime.Checked;
+			radioButtonLastWriteDateUtc.Checked = radioButtonNewLastWriteDateUtc.Checked;
+
+			if (radioButtonCreationDateLocalTime.Checked)
+			{
+				textBoxCreationDate.Text = File.GetCreationTime(path: textBoxPath.Text).ToString();
+			}
+			else
+			{
+				textBoxCreationDate.Text = File.GetCreationTimeUtc(path: textBoxPath.Text).ToString();
+			}
+
+			if (radioButtonLastAccessDateLocalTime.Checked)
+			{
+				textBoxLastAccessDate.Text = File.GetLastAccessTime(path: textBoxPath.Text).ToString();
+			}
+			else
+			{
+				textBoxLastAccessDate.Text = File.GetLastAccessTimeUtc(path: textBoxPath.Text).ToString();
+			}
+
+			if (radioButtonLastWriteDateLocalTime.Checked)
+			{
+				textBoxLastWriteDate.Text = File.GetLastWriteTime(path: textBoxPath.Text).ToString();
+			}
+			else
+			{
+				textBoxLastWriteDate.Text = File.GetLastWriteTimeUtc(path: textBoxPath.Text).ToString();
+			}
 
 			MessageBox.Show(text: "All dates has been changed!", caption: "Information", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
@@ -145,5 +198,71 @@ namespace FileDateTime_Manipulator
 		{
 			this.Close();
 		}
+
+		#endregion
+
+		#region CheckedChanged-Eventhandler
+
+		private void RadioButtonCreationDateLocalTime_CheckedChanged(object sender, EventArgs e)
+		{
+			textBoxCreationDate.Text = File.GetCreationTime(path: openFileDialog.FileName).ToString();
+		}
+
+		private void RadioButtonCreationDateUtc_CheckedChanged(object sender, EventArgs e)
+		{
+			textBoxCreationDate.Text = File.GetCreationTimeUtc(path: openFileDialog.FileName).ToString();
+		}
+
+		private void RadioButtonLastAccessDateLocalTime_CheckedChanged(object sender, EventArgs e)
+		{
+			textBoxLastAccessDate.Text = File.GetLastAccessTime(path: openFileDialog.FileName).ToString();
+		}
+
+		private void RadioButtonLastAccessDateUtc_CheckedChanged(object sender, EventArgs e)
+		{
+			textBoxLastAccessDate.Text = File.GetLastAccessTimeUtc(path: openFileDialog.FileName).ToString();
+		}
+
+		private void RadioButtonLastWriteDateLocalTime_CheckedChanged(object sender, EventArgs e)
+		{
+			textBoxLastWriteDate.Text = File.GetLastWriteTime(path: openFileDialog.FileName).ToString();
+		}
+
+		private void RadioButtonLastWriteDateUtc_CheckedChanged(object sender, EventArgs e)
+		{
+			textBoxLastWriteDate.Text = File.GetLastWriteTimeUtc(path: openFileDialog.FileName).ToString();
+		}
+
+		private void RadioButtonNewCreationDateLocalTime_CheckedChanged(object sender, EventArgs e)
+		{
+			dateTimePickerCreated.Value = dateTimePickerCreated.Value.ToLocalTime();
+		}
+
+		private void RadioButtonNewCreationDateUtc_CheckedChanged(object sender, EventArgs e)
+		{
+			dateTimePickerCreated.Value = dateTimePickerCreated.Value.ToUniversalTime();
+		}
+
+		private void RadioButtonNewLastAccessDateLocalTime_CheckedChanged(object sender, EventArgs e)
+		{
+			dateTimePickerAccessed.Value = dateTimePickerAccessed.Value.ToLocalTime();
+		}
+
+		private void RadioButtonNewLastAccessDateUtc_CheckedChanged(object sender, EventArgs e)
+		{
+			dateTimePickerAccessed.Value = dateTimePickerAccessed.Value.ToUniversalTime();
+		}
+
+		private void RadioButtonNewLastWriteDateLocalTime_CheckedChanged(object sender, EventArgs e)
+		{
+			dateTimePickerWrited.Value = dateTimePickerWrited.Value.ToLocalTime();
+		}
+
+		private void RadioButtonNewLastWriteDateUtc_CheckedChanged(object sender, EventArgs e)
+		{
+			dateTimePickerWrited.Value = dateTimePickerWrited.Value.ToUniversalTime();
+		}
+
+		#endregion
 	}
 }
