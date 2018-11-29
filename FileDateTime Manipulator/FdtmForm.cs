@@ -105,87 +105,32 @@ namespace FileDateTime_Manipulator
 		{
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
-				fileInfo = new FileInfo(fileName: openFileDialog.FileName);
-				textBoxPath.Text = fileInfo.FullName;
-				textBoxCreationDate.Text = fileInfo.CreationTime.ToString();
-				textBoxLastAccessDate.Text = fileInfo.LastAccessTime.ToString();
-				textBoxLastWriteDate.Text = fileInfo.LastWriteTime.ToString();
+				textBoxPath.Text = openFileDialog.FileName;
+				textBoxCreationDate.Text = File.GetCreationTime(path: openFileDialog.FileName).ToString();
+				textBoxLastAccessDate.Text = File.GetLastAccessTime(path: openFileDialog.FileName).ToString();
+				textBoxLastWriteDate.Text = File.GetLastWriteTime(path: openFileDialog.FileName).ToString();
 
-				numericUpDownCreationDateYear.Enabled = true;
-				numericUpDownAccessDateYear.Enabled = true;
-				numericUpDownWriteDateYear.Enabled = true;
-				numericUpDownCreationDateMonth.Enabled = true;
-				numericUpDownAccessDateMonth.Enabled = true;
-				numericUpDownWriteDateMonth.Enabled = true;
-				numericUpDownCreationDateDay.Enabled = true;
-				numericUpDownAccessDateDay.Enabled = true;
-				numericUpDownWriteDateDay.Enabled = true;
-				numericUpDownCreationDateHour.Enabled = true;
-				numericUpDownAccessDateHour.Enabled = true;
-				numericUpDownWriteDateHour.Enabled = true;
-				numericUpDownCreationDateMinute.Enabled = true;
-				numericUpDownAccessDateMinute.Enabled = true;
-				numericUpDownWriteDateMinute.Enabled = true;
-				numericUpDownCreationDateSecond.Enabled = true;
-				numericUpDownAccessDateSecond.Enabled = true;
-				numericUpDownWriteDateSecond.Enabled = true;
+				dateTimePickerCreated.Enabled = true;
+				dateTimePickerAccessed.Enabled = true;
+				dateTimePickerWrited.Enabled = true;
 				buttonApply.Enabled = true;
-
-				numericUpDownCreationDateYear.Value = fileInfo.CreationTime.Year;
-				numericUpDownAccessDateYear.Value = fileInfo.LastAccessTime.Year;
-				numericUpDownWriteDateYear.Value = fileInfo.LastWriteTime.Year;
-				numericUpDownCreationDateMonth.Value = fileInfo.CreationTime.Month;
-				numericUpDownAccessDateMonth.Value = fileInfo.LastAccessTime.Month;
-				numericUpDownWriteDateMonth.Value = fileInfo.LastWriteTime.Month;
-				numericUpDownCreationDateDay.Value = fileInfo.CreationTime.Day;
-				numericUpDownAccessDateDay.Value = fileInfo.LastAccessTime.Day;
-				numericUpDownWriteDateDay.Value = fileInfo.LastWriteTime.Day;
-				numericUpDownCreationDateHour.Value = fileInfo.CreationTime.Hour;
-				numericUpDownAccessDateHour.Value = fileInfo.LastAccessTime.Hour;
-				numericUpDownWriteDateHour.Value = fileInfo.LastWriteTime.Hour;
-				numericUpDownCreationDateMinute.Value = fileInfo.CreationTime.Minute;
-				numericUpDownAccessDateMinute.Value = fileInfo.LastAccessTime.Minute;
-				numericUpDownWriteDateMinute.Value = fileInfo.LastWriteTime.Minute;
-				numericUpDownCreationDateSecond.Value = fileInfo.CreationTime.Second;
-				numericUpDownAccessDateSecond.Value = fileInfo.LastAccessTime.Second;
-				numericUpDownWriteDateSecond.Value = fileInfo.LastWriteTime.Second;
 			}
 		}
 
 		private void ButtonApply_Click(object sender, EventArgs e)
 		{
-			DateTime creationTime = new DateTime(
-				year: (int)numericUpDownCreationDateYear.Value,
-				month: (int)numericUpDownCreationDateMonth.Value,
-				day: (int)numericUpDownCreationDateDay.Value,
-				hour: (int)numericUpDownCreationDateHour.Value,
-				minute: (int)numericUpDownCreationDateMinute.Value,
-				second: (int)numericUpDownCreationDateSecond.Value);
+			DateTime
+				creationTime = dateTimePickerCreated.Value,
+				lastAccessTime = dateTimePickerCreated.Value,
+				lastWriteTime = dateTimePickerCreated.Value;
 
-			DateTime lastAccessTime = new DateTime(
-				year: (int)numericUpDownAccessDateYear.Value,
-				month: (int)numericUpDownAccessDateMonth.Value,
-				day: (int)numericUpDownAccessDateDay.Value,
-				hour: (int)numericUpDownAccessDateHour.Value,
-				minute: (int)numericUpDownAccessDateMinute.Value,
-				second: (int)numericUpDownAccessDateSecond.Value);
+			if (dateTimePickerCreated.Checked) File.SetCreationTime(path: textBoxPath.Text, creationTime: creationTime);
+			if (dateTimePickerAccessed.Checked) File.SetLastAccessTime(path: textBoxPath.Text, lastAccessTime: lastAccessTime);
+			if (dateTimePickerWrited.Checked) File.SetLastWriteTime(path: textBoxPath.Text, lastWriteTime: lastWriteTime);
 
-			DateTime lastWriteTime = new DateTime(
-				year: (int)numericUpDownWriteDateYear.Value,
-				month: (int)numericUpDownWriteDateMonth.Value,
-				day: (int)numericUpDownWriteDateDay.Value,
-				hour: (int)numericUpDownWriteDateHour.Value,
-				minute: (int)numericUpDownWriteDateMinute.Value,
-				second: (int)numericUpDownWriteDateSecond.Value);
-
-			File.SetCreationTime(path: fileInfo.FullName, creationTime: creationTime);
-			File.SetLastAccessTime(path: fileInfo.FullName, lastAccessTime: lastAccessTime);
-			File.SetLastWriteTime(path: fileInfo.FullName, lastWriteTime: lastWriteTime);
-
-			fileInfo = new FileInfo(fileName: textBoxPath.Text);
-			textBoxCreationDate.Text = fileInfo.CreationTime.ToString();
-			textBoxLastAccessDate.Text = fileInfo.LastAccessTime.ToString();
-			textBoxLastWriteDate.Text = fileInfo.LastWriteTime.ToString();
+			textBoxCreationDate.Text = File.GetCreationTime(path: textBoxPath.Text).ToString();
+			textBoxLastAccessDate.Text = File.GetLastAccessTime(path: textBoxPath.Text).ToString();
+			textBoxLastWriteDate.Text = File.GetLastWriteTime(path: textBoxPath.Text).ToString();
 
 			MessageBox.Show(text: "All dates has been changed!", caption: "Information", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
 		}
