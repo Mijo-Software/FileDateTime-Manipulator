@@ -97,6 +97,9 @@ namespace FileDateTime_Manipulator
 
 		private void FdtmForm_Load(object sender, EventArgs e)
 		{
+			dateTimePickerCreated.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
+			dateTimePickerAccessed.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
+			dateTimePickerWrited.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
 		}
 
 		#region Click-Eventhandler
@@ -264,5 +267,36 @@ namespace FileDateTime_Manipulator
 		}
 
 		#endregion
+
+		private void SetStatusLabelForTextBox(object sender, EventArgs e)
+		{
+			toolStripStatusLabel.Text = ((TextBox)sender).AccessibleDescription;
+		}
+
+		private void SetStatusLabelForButton(object sender, EventArgs e)
+		{
+			toolStripStatusLabel.Text = ((Button)sender).AccessibleDescription;
+		}
+
+		private void SetStatusLabelForRadioButton(object sender, EventArgs e)
+		{
+			toolStripStatusLabel.Text = ((RadioButton)sender).AccessibleDescription;
+		}
+
+		private void SetStatusLabelForDateTimePicker(object sender, EventArgs e)
+		{
+			toolStripStatusLabel.Text = ((DateTimePicker)sender).AccessibleDescription;
+		}
+
+		private void SetStatusLabelForLabel(object sender, EventArgs e)
+		{
+			toolStripStatusLabel.Text = ((Label)sender).AccessibleDescription;
+		}
+
+		private void ClearStatusLabel(object sender, EventArgs e)
+		{
+			toolStripStatusLabel.Text = String.Empty;
+		}
+
 	}
 }
