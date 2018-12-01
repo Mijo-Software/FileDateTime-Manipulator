@@ -102,6 +102,41 @@ namespace FileDateTime_Manipulator
 			dateTimePickerWrited.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
 		}
 
+		private void EnableAllControls()
+		{
+			RadioButtonCreationDateLocalTime_CheckedChanged(sender: null, e: EventArgs.Empty);
+			RadioButtonLastAccessDateLocalTime_CheckedChanged(sender: null, e: EventArgs.Empty);
+			RadioButtonLastWriteDateLocalTime_CheckedChanged(sender: null, e: EventArgs.Empty);
+
+			radioButtonCreationDateLocalTime.Enabled = true;
+			radioButtonCreationDateUtc.Enabled = true;
+			radioButtonLastAccessDateLocalTime.Enabled = true;
+			radioButtonLastAccessDateUtc.Enabled = true;
+			radioButtonLastWriteDateLocalTime.Enabled = true;
+			radioButtonLastWriteDateUtc.Enabled = true;
+
+			radioButtonCreationDateLocalTime.Checked = true;
+			radioButtonLastAccessDateLocalTime.Checked = true;
+			radioButtonLastWriteDateLocalTime.Checked = true;
+
+			labelNewCreationDate.Enabled = true;
+			labelNewAccessDate.Enabled = true;
+			labelNewWriteDate.Enabled = true;
+
+			dateTimePickerCreated.Enabled = true;
+			dateTimePickerAccessed.Enabled = true;
+			dateTimePickerWrited.Enabled = true;
+
+			radioButtonNewCreationDateLocalTime.Enabled = true;
+			radioButtonNewCreationDateUtc.Enabled = true;
+			radioButtonNewLastAccessDateLocalTime.Enabled = true;
+			radioButtonNewLastAccessDateUtc.Enabled = true;
+			radioButtonNewLastWriteDateLocalTime.Enabled = true;
+			radioButtonNewLastWriteDateUtc.Enabled = true;
+
+			buttonApply.Enabled = true;
+		}
+
 		#region Click-Eventhandler
 
 		private void ButtonSelectFile_Click(object sender, EventArgs e)
@@ -109,37 +144,16 @@ namespace FileDateTime_Manipulator
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
 				textBoxPath.Text = openFileDialog.FileName;
-				RadioButtonCreationDateLocalTime_CheckedChanged(sender: sender, e: e);
-				RadioButtonLastAccessDateLocalTime_CheckedChanged(sender: sender, e: e);
-				RadioButtonLastWriteDateLocalTime_CheckedChanged(sender: sender, e: e);
+				EnableAllControls();
+			}
+		}
 
-				radioButtonCreationDateLocalTime.Enabled = true;
-				radioButtonCreationDateUtc.Enabled = true;
-				radioButtonLastAccessDateLocalTime.Enabled = true;
-				radioButtonLastAccessDateUtc.Enabled = true;
-				radioButtonLastWriteDateLocalTime.Enabled = true;
-				radioButtonLastWriteDateUtc.Enabled = true;
-
-				radioButtonCreationDateLocalTime.Checked = true;
-				radioButtonLastAccessDateLocalTime.Checked = true;
-				radioButtonLastWriteDateLocalTime.Checked = true;
-
-				labelNewCreationDate.Enabled = true;
-				labelNewAccessDate.Enabled = true;
-				labelNewWriteDate.Enabled = true;
-
-				dateTimePickerCreated.Enabled = true;
-				dateTimePickerAccessed.Enabled = true;
-				dateTimePickerWrited.Enabled = true;
-
-				radioButtonNewCreationDateLocalTime.Enabled = true;
-				radioButtonNewCreationDateUtc.Enabled = true;
-				radioButtonNewLastAccessDateLocalTime.Enabled = true;
-				radioButtonNewLastAccessDateUtc.Enabled = true;
-				radioButtonNewLastWriteDateLocalTime.Enabled = true;
-				radioButtonNewLastWriteDateUtc.Enabled = true;
-
-				buttonApply.Enabled = true;
+		private void ButtonSelectFolder_Click(object sender, EventArgs e)
+		{
+			if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+			{
+				textBoxPath.Text = folderBrowserDialog.SelectedPath;
+				EnableAllControls();
 			}
 		}
 
@@ -150,9 +164,45 @@ namespace FileDateTime_Manipulator
 				lastAccessTime = dateTimePickerWrited.Value,
 				lastWriteTime = dateTimePickerWrited.Value;
 
-			if (dateTimePickerCreated.Checked) File.SetCreationTime(path: textBoxPath.Text, creationTime: creationTime);
-			if (dateTimePickerAccessed.Checked) File.SetLastAccessTime(path: textBoxPath.Text, lastAccessTime: lastAccessTime);
-			if (dateTimePickerWrited.Checked) File.SetLastWriteTime(path: textBoxPath.Text, lastWriteTime: lastWriteTime);
+			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
+
+			bool isFolder = (attr & FileAttributes.Directory) == FileAttributes.Directory;
+
+			if (dateTimePickerCreated.Checked)
+			{
+				if (isFolder)
+				{
+					Directory.SetCreationTime(path: textBoxPath.Text, creationTime: creationTime);
+				}
+				else
+				{
+					File.SetCreationTime(path: textBoxPath.Text, creationTime: creationTime);
+				}
+			}
+
+			if (dateTimePickerAccessed.Checked)
+			{
+				if (isFolder)
+				{
+					Directory.SetLastAccessTime(path: textBoxPath.Text, lastAccessTime: lastAccessTime);
+				}
+				else
+				{
+					File.SetLastAccessTime(path: textBoxPath.Text, lastAccessTime: lastAccessTime);
+				}
+			}
+
+			if (dateTimePickerWrited.Checked)
+			{
+				if (isFolder)
+				{
+					Directory.SetLastWriteTime(path: textBoxPath.Text, lastWriteTime: lastAccessTime);
+				}
+				else
+				{
+					File.SetLastWriteTime(path: textBoxPath.Text, lastWriteTime: lastAccessTime);
+				}
+			}
 
 			radioButtonCreationDateLocalTime.Checked = radioButtonNewCreationDateLocalTime.Checked;
 			radioButtonCreationDateUtc.Checked = radioButtonNewCreationDateUtc.Checked;
@@ -160,32 +210,74 @@ namespace FileDateTime_Manipulator
 			radioButtonLastAccessDateUtc.Checked = radioButtonNewLastAccessDateUtc.Checked;
 			radioButtonLastWriteDateLocalTime.Checked = radioButtonNewLastWriteDateLocalTime.Checked;
 			radioButtonLastWriteDateUtc.Checked = radioButtonNewLastWriteDateUtc.Checked;
-
+			
 			if (radioButtonCreationDateLocalTime.Checked)
 			{
-				textBoxCreationDate.Text = File.GetCreationTime(path: textBoxPath.Text).ToString();
+				if (isFolder)
+				{
+					textBoxCreationDate.Text = Directory.GetCreationTime(path: textBoxPath.Text).ToString();
+				}
+				else
+				{
+					textBoxCreationDate.Text = File.GetCreationTime(path: textBoxPath.Text).ToString();
+				}
 			}
 			else
 			{
-				textBoxCreationDate.Text = File.GetCreationTimeUtc(path: textBoxPath.Text).ToString();
+				if (isFolder)
+				{
+					textBoxCreationDate.Text = Directory.GetCreationTimeUtc(path: textBoxPath.Text).ToString();
+				}
+				else
+				{
+					textBoxCreationDate.Text = File.GetCreationTimeUtc(path: textBoxPath.Text).ToString();
+				}
 			}
 
 			if (radioButtonLastAccessDateLocalTime.Checked)
 			{
-				textBoxLastAccessDate.Text = File.GetLastAccessTime(path: textBoxPath.Text).ToString();
+				if (isFolder)
+				{
+					textBoxLastAccessDate.Text = Directory.GetLastAccessTime(path: textBoxPath.Text).ToString();
+				}
+				else
+				{
+					textBoxLastAccessDate.Text = File.GetLastAccessTime(path: textBoxPath.Text).ToString();
+				}
 			}
 			else
 			{
-				textBoxLastAccessDate.Text = File.GetLastAccessTimeUtc(path: textBoxPath.Text).ToString();
+				if (isFolder)
+				{
+					textBoxLastAccessDate.Text = Directory.GetLastAccessTimeUtc(path: textBoxPath.Text).ToString();
+				}
+				else
+				{
+					textBoxLastAccessDate.Text = File.GetLastAccessTimeUtc(path: textBoxPath.Text).ToString();
+				}
 			}
 
 			if (radioButtonLastWriteDateLocalTime.Checked)
 			{
-				textBoxLastWriteDate.Text = File.GetLastWriteTime(path: textBoxPath.Text).ToString();
+				if (isFolder)
+				{
+					textBoxLastWriteDate.Text = Directory.GetLastWriteTime(path: textBoxPath.Text).ToString();
+				}
+				else
+				{
+					textBoxLastWriteDate.Text = File.GetLastWriteTime(path: textBoxPath.Text).ToString();
+				}
 			}
 			else
 			{
-				textBoxLastWriteDate.Text = File.GetLastWriteTimeUtc(path: textBoxPath.Text).ToString();
+				if (isFolder)
+				{
+					textBoxLastWriteDate.Text = Directory.GetLastWriteTimeUtc(path: textBoxPath.Text).ToString();
+				}
+				else
+				{
+					textBoxLastWriteDate.Text = File.GetLastWriteTimeUtc(path: textBoxPath.Text).ToString();
+				}
 			}
 
 			MessageBox.Show(text: "All dates has been changed!", caption: "Information", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
@@ -208,32 +300,80 @@ namespace FileDateTime_Manipulator
 
 		private void RadioButtonCreationDateLocalTime_CheckedChanged(object sender, EventArgs e)
 		{
-			textBoxCreationDate.Text = File.GetCreationTime(path: openFileDialog.FileName).ToString();
+			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
+			if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+			{
+				textBoxCreationDate.Text = Directory.GetCreationTime(path: textBoxPath.Text).ToString();
+			}
+			else
+			{
+				textBoxCreationDate.Text = File.GetCreationTime(path: textBoxPath.Text).ToString();
+			}
 		}
 
 		private void RadioButtonCreationDateUtc_CheckedChanged(object sender, EventArgs e)
 		{
-			textBoxCreationDate.Text = File.GetCreationTimeUtc(path: openFileDialog.FileName).ToString();
+			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
+			if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+			{
+				textBoxCreationDate.Text = Directory.GetCreationTimeUtc(path: textBoxPath.Text).ToString();
+			}
+			else
+			{
+				textBoxCreationDate.Text = File.GetCreationTimeUtc(path: textBoxPath.Text).ToString();
+			}
 		}
 
 		private void RadioButtonLastAccessDateLocalTime_CheckedChanged(object sender, EventArgs e)
 		{
-			textBoxLastAccessDate.Text = File.GetLastAccessTime(path: openFileDialog.FileName).ToString();
+			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
+			if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+			{
+				textBoxLastAccessDate.Text = Directory.GetLastAccessTime(path: textBoxPath.Text).ToString();
+			}
+			else
+			{
+				textBoxLastAccessDate.Text = File.GetLastAccessTime(path: textBoxPath.Text).ToString();
+			}
 		}
 
 		private void RadioButtonLastAccessDateUtc_CheckedChanged(object sender, EventArgs e)
 		{
-			textBoxLastAccessDate.Text = File.GetLastAccessTimeUtc(path: openFileDialog.FileName).ToString();
+			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
+			if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+			{
+				textBoxLastAccessDate.Text = Directory.GetLastAccessTimeUtc(path: textBoxPath.Text).ToString();
+			}
+			else
+			{
+				textBoxLastAccessDate.Text = File.GetLastAccessTimeUtc(path: textBoxPath.Text).ToString();
+			}
 		}
 
 		private void RadioButtonLastWriteDateLocalTime_CheckedChanged(object sender, EventArgs e)
 		{
-			textBoxLastWriteDate.Text = File.GetLastWriteTime(path: openFileDialog.FileName).ToString();
+			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
+			if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+			{
+				textBoxLastWriteDate.Text = Directory.GetLastWriteTime(path: textBoxPath.Text).ToString();
+			}
+			else
+			{
+				textBoxLastWriteDate.Text = File.GetLastWriteTime(path: textBoxPath.Text).ToString();
+			}
 		}
 
 		private void RadioButtonLastWriteDateUtc_CheckedChanged(object sender, EventArgs e)
 		{
-			textBoxLastWriteDate.Text = File.GetLastWriteTimeUtc(path: openFileDialog.FileName).ToString();
+			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
+			if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+			{
+				textBoxLastWriteDate.Text = Directory.GetLastWriteTimeUtc(path: textBoxPath.Text).ToString();
+			}
+			else
+			{
+				textBoxLastWriteDate.Text = File.GetLastWriteTimeUtc(path: textBoxPath.Text).ToString();
+			}
 		}
 
 		private void RadioButtonNewCreationDateLocalTime_CheckedChanged(object sender, EventArgs e)
@@ -268,29 +408,30 @@ namespace FileDateTime_Manipulator
 
 		#endregion
 
-		private void SetStatusLabelForTextBox(object sender, EventArgs e)
-		{
-			toolStripStatusLabel.Text = ((TextBox)sender).AccessibleDescription;
-		}
+		#region Statuslabel
 
-		private void SetStatusLabelForButton(object sender, EventArgs e)
+		private void SetStatusLabel(object sender, EventArgs e)
 		{
-			toolStripStatusLabel.Text = ((Button)sender).AccessibleDescription;
-		}
-
-		private void SetStatusLabelForRadioButton(object sender, EventArgs e)
-		{
-			toolStripStatusLabel.Text = ((RadioButton)sender).AccessibleDescription;
-		}
-
-		private void SetStatusLabelForDateTimePicker(object sender, EventArgs e)
-		{
-			toolStripStatusLabel.Text = ((DateTimePicker)sender).AccessibleDescription;
-		}
-
-		private void SetStatusLabelForLabel(object sender, EventArgs e)
-		{
-			toolStripStatusLabel.Text = ((Label)sender).AccessibleDescription;
+			if (sender is TextBox)
+			{
+				toolStripStatusLabel.Text = ((TextBox)sender).AccessibleDescription;
+			}
+			else if (sender is Button)
+			{
+				toolStripStatusLabel.Text = ((Button)sender).AccessibleDescription;
+			}
+			else if (sender is RadioButton)
+			{
+				toolStripStatusLabel.Text = ((RadioButton)sender).AccessibleDescription;
+			}
+			else if (sender is DateTimePicker)
+			{
+				toolStripStatusLabel.Text = ((DateTimePicker)sender).AccessibleDescription;
+			}
+			else if (sender is Label)
+			{
+				toolStripStatusLabel.Text = ((Label)sender).AccessibleDescription;
+			}
 		}
 
 		private void ClearStatusLabel(object sender, EventArgs e)
@@ -298,5 +439,36 @@ namespace FileDateTime_Manipulator
 			toolStripStatusLabel.Text = String.Empty;
 		}
 
+		#endregion
+
+		#region Drag'n'Drop
+
+		private void FdtmForm_DragOver(object sender, DragEventArgs e)
+		{
+			toolStripStatusLabel.Text = "Drag and drop a file or a folder in this window";
+			if (e.Data.GetDataPresent(format: DataFormats.FileDrop))
+			{
+				e.Effect = DragDropEffects.Link;
+			}
+			else
+			{
+				e.Effect = DragDropEffects.None;
+			}
+		}
+
+		private void FdtmForm_DragDrop(object sender, DragEventArgs e)
+		{
+			string[] files = (string[])e.Data.GetData(format: DataFormats.FileDrop, autoConvert: false); // get all files droppeds
+
+			if (files != null)
+			{
+				textBoxPath.Text = files[0]; //select the first one
+				EnableAllControls();
+				buttonApply.Enabled = true;
+				//foreach (string file in files) this.label.Text += File + "\n";
+			}
+		}
+
+		#endregion
 	}
 }
