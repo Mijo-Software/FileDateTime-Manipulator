@@ -1,4 +1,4 @@
-﻿namespace FileDateTime_Manipulator
+﻿namespace FileDateTimeManipulator
 {
 	partial class FdtmForm
 	{
@@ -39,6 +39,8 @@
 			this.radioButtonNewLastWriteDateUtc = new System.Windows.Forms.RadioButton();
 			this.radioButtonNewLastWriteDateLocalTime = new System.Windows.Forms.RadioButton();
 			this.dateTimePickerWrited = new System.Windows.Forms.DateTimePicker();
+			this.contextMenuStripCopyToClipboard = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.toolStripMenuItemCopyToClipboard = new System.Windows.Forms.ToolStripMenuItem();
 			this.dateTimePickerAccessed = new System.Windows.Forms.DateTimePicker();
 			this.dateTimePickerCreated = new System.Windows.Forms.DateTimePicker();
 			this.radioButtonLastWriteDateUtc = new System.Windows.Forms.RadioButton();
@@ -51,21 +53,38 @@
 			this.radioButtonLastAccessDateUtc = new System.Windows.Forms.RadioButton();
 			this.radioButtonLastAccessDateLocalTime = new System.Windows.Forms.RadioButton();
 			this.textBoxPath = new System.Windows.Forms.TextBox();
+			this.contextMenuStripIcons = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.toolStripMenuItemFatcowIcons = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemFugueIcons = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemSilkIcons = new System.Windows.Forms.ToolStripMenuItem();
+			this.buttonSelectFolders = new System.Windows.Forms.Button();
+			this.buttonRemoveItem = new System.Windows.Forms.Button();
+			this.buttonSelectFile = new System.Windows.Forms.Button();
 			this.buttonClose = new System.Windows.Forms.Button();
 			this.buttonInfo = new System.Windows.Forms.Button();
 			this.buttonApply = new System.Windows.Forms.Button();
-			this.buttonSelectFile = new System.Windows.Forms.Button();
-			this.buttonSelectFolder = new System.Windows.Forms.Button();
-			this.statusStrip = new System.Windows.Forms.StatusStrip();
-			this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
-			this.labelOr = new System.Windows.Forms.Label();
-			this.tableLayoutPanelSetDate = new System.Windows.Forms.TableLayoutPanel();
 			this.labelNewCreationDate = new System.Windows.Forms.Label();
-			this.tableLayoutPanelSetLastWriteDateFormat = new System.Windows.Forms.TableLayoutPanel();
-			this.tableLayoutPanelSetLastAccessDateFormat = new System.Windows.Forms.TableLayoutPanel();
 			this.labelNewWriteDate = new System.Windows.Forms.Label();
 			this.labelNewAccessDate = new System.Windows.Forms.Label();
+			this.statusStrip = new System.Windows.Forms.StatusStrip();
+			this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+			this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
+			this.panelAddOrRemove = new System.Windows.Forms.Panel();
+			this.listViewFoldersAndFiles = new System.Windows.Forms.ListView();
+			this.columnHeaderType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderCreationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderLastAccessDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderLastWriteDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderCreationDatePreview = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderLastAccessDatePreview = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeaderLateWriteDatePreview = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.imageListFatcow = new System.Windows.Forms.ImageList(this.components);
+			this.tableLayoutPanelSetDate = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanelSetLastWriteDateFormat = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanelSetLastAccessDateFormat = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanelSetCreationDateFormat = new System.Windows.Forms.TableLayoutPanel();
 			this.panelButtons = new System.Windows.Forms.Panel();
 			this.tableLayoutPanelGetDate = new System.Windows.Forms.TableLayoutPanel();
@@ -75,12 +94,16 @@
 			this.labelLastAccessDate = new System.Windows.Forms.Label();
 			this.labelLastWriteDate = new System.Windows.Forms.Label();
 			this.tableLayoutPanelGetLastAccessDateFormat = new System.Windows.Forms.TableLayoutPanel();
-			this.labelPath = new System.Windows.Forms.Label();
 			this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+			this.imageListFugue = new System.Windows.Forms.ImageList(this.components);
+			this.imageListSilk = new System.Windows.Forms.ImageList(this.components);
+			this.contextMenuStripCopyToClipboard.SuspendLayout();
+			this.contextMenuStripIcons.SuspendLayout();
 			this.statusStrip.SuspendLayout();
 			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
 			this.toolStripContainer.ContentPanel.SuspendLayout();
 			this.toolStripContainer.SuspendLayout();
+			this.panelAddOrRemove.SuspendLayout();
 			this.tableLayoutPanelSetDate.SuspendLayout();
 			this.tableLayoutPanelSetLastWriteDateFormat.SuspendLayout();
 			this.tableLayoutPanelSetLastAccessDateFormat.SuspendLayout();
@@ -95,6 +118,7 @@
 			// openFileDialog
 			// 
 			this.openFileDialog.Filter = "all files|*.*";
+			this.openFileDialog.Multiselect = true;
 			this.openFileDialog.SupportMultiDottedExtensions = true;
 			this.openFileDialog.Title = "Select file";
 			// 
@@ -114,10 +138,10 @@
 			this.toolTip.SetToolTip(this.radioButtonNewCreationDateUtc, "Convert the creation date preview to the universal time");
 			this.radioButtonNewCreationDateUtc.UseVisualStyleBackColor = true;
 			this.radioButtonNewCreationDateUtc.CheckedChanged += new System.EventHandler(this.RadioButtonNewCreationDateUtc_CheckedChanged);
-			this.radioButtonNewCreationDateUtc.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewCreationDateUtc.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonNewCreationDateUtc.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewCreationDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonNewCreationDateUtc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewCreationDateUtc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonNewCreationDateUtc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewCreationDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonNewCreationDateLocalTime
 			// 
@@ -137,10 +161,10 @@
 			this.toolTip.SetToolTip(this.radioButtonNewCreationDateLocalTime, "Convert the creation date preview to the local time");
 			this.radioButtonNewCreationDateLocalTime.UseVisualStyleBackColor = true;
 			this.radioButtonNewCreationDateLocalTime.CheckedChanged += new System.EventHandler(this.RadioButtonNewCreationDateLocalTime_CheckedChanged);
-			this.radioButtonNewCreationDateLocalTime.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewCreationDateLocalTime.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonNewCreationDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewCreationDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonNewCreationDateLocalTime.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewCreationDateLocalTime.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonNewCreationDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewCreationDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonNewLastAccessDateUtc
 			// 
@@ -158,10 +182,10 @@
 			this.toolTip.SetToolTip(this.radioButtonNewLastAccessDateUtc, "Convert the last access date preview to the universal time");
 			this.radioButtonNewLastAccessDateUtc.UseVisualStyleBackColor = true;
 			this.radioButtonNewLastAccessDateUtc.CheckedChanged += new System.EventHandler(this.RadioButtonNewLastAccessDateUtc_CheckedChanged);
-			this.radioButtonNewLastAccessDateUtc.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewLastAccessDateUtc.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonNewLastAccessDateUtc.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewLastAccessDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonNewLastAccessDateUtc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewLastAccessDateUtc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonNewLastAccessDateUtc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewLastAccessDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonNewLastAccessDateLocalTime
 			// 
@@ -181,10 +205,10 @@
 			this.toolTip.SetToolTip(this.radioButtonNewLastAccessDateLocalTime, "Convert the last access date preview to the local time");
 			this.radioButtonNewLastAccessDateLocalTime.UseVisualStyleBackColor = true;
 			this.radioButtonNewLastAccessDateLocalTime.CheckedChanged += new System.EventHandler(this.RadioButtonNewLastAccessDateLocalTime_CheckedChanged);
-			this.radioButtonNewLastAccessDateLocalTime.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewLastAccessDateLocalTime.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonNewLastAccessDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewLastAccessDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonNewLastAccessDateLocalTime.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewLastAccessDateLocalTime.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonNewLastAccessDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewLastAccessDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonNewLastWriteDateUtc
 			// 
@@ -202,10 +226,10 @@
 			this.toolTip.SetToolTip(this.radioButtonNewLastWriteDateUtc, "Convert the last write date preview to the universal time");
 			this.radioButtonNewLastWriteDateUtc.UseVisualStyleBackColor = true;
 			this.radioButtonNewLastWriteDateUtc.CheckedChanged += new System.EventHandler(this.RadioButtonNewLastWriteDateUtc_CheckedChanged);
-			this.radioButtonNewLastWriteDateUtc.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewLastWriteDateUtc.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonNewLastWriteDateUtc.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewLastWriteDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonNewLastWriteDateUtc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewLastWriteDateUtc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonNewLastWriteDateUtc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewLastWriteDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonNewLastWriteDateLocalTime
 			// 
@@ -225,18 +249,20 @@
 			this.toolTip.SetToolTip(this.radioButtonNewLastWriteDateLocalTime, "Convert the last write date preview to the local time");
 			this.radioButtonNewLastWriteDateLocalTime.UseVisualStyleBackColor = true;
 			this.radioButtonNewLastWriteDateLocalTime.CheckedChanged += new System.EventHandler(this.RadioButtonNewLastWriteDateLocalTime_CheckedChanged);
-			this.radioButtonNewLastWriteDateLocalTime.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewLastWriteDateLocalTime.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonNewLastWriteDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonNewLastWriteDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonNewLastWriteDateLocalTime.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewLastWriteDateLocalTime.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonNewLastWriteDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonNewLastWriteDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// dateTimePickerWrited
 			// 
 			this.dateTimePickerWrited.AccessibleDescription = "Set the last write date of the file";
 			this.dateTimePickerWrited.AccessibleName = "Last write date preview of the file";
+			this.dateTimePickerWrited.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
 			this.dateTimePickerWrited.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.dateTimePickerWrited.ContextMenuStrip = this.contextMenuStripCopyToClipboard;
 			this.dateTimePickerWrited.CustomFormat = "dd.MM.yyyy HH:mm:ss";
 			this.dateTimePickerWrited.Enabled = false;
 			this.dateTimePickerWrited.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -246,20 +272,49 @@
 			this.dateTimePickerWrited.ShowCheckBox = true;
 			this.dateTimePickerWrited.ShowUpDown = true;
 			this.dateTimePickerWrited.Size = new System.Drawing.Size(168, 20);
-			this.dateTimePickerWrited.TabIndex = 7;
+			this.dateTimePickerWrited.TabIndex = 5;
 			this.toolTip.SetToolTip(this.dateTimePickerWrited, "Last write date preview of the file");
-			this.dateTimePickerWrited.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.dateTimePickerWrited.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.dateTimePickerWrited.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.dateTimePickerWrited.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.dateTimePickerWrited.Enter += new System.EventHandler(this.DateTimePickerWrited_Enter);
+			this.dateTimePickerWrited.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.dateTimePickerWrited.MouseEnter += new System.EventHandler(this.DateTimePickerWrited_Enter);
+			this.dateTimePickerWrited.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// contextMenuStripCopyToClipboard
+			// 
+			this.contextMenuStripCopyToClipboard.AccessibleDescription = "Indicate to copy to clipboard";
+			this.contextMenuStripCopyToClipboard.AccessibleName = "Indicate to copy to clipboard";
+			this.contextMenuStripCopyToClipboard.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
+			this.contextMenuStripCopyToClipboard.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemCopyToClipboard});
+			this.contextMenuStripCopyToClipboard.Name = "contextMenuStripCopyToClipboard";
+			this.contextMenuStripCopyToClipboard.Size = new System.Drawing.Size(170, 26);
+			this.contextMenuStripCopyToClipboard.TabStop = true;
+			this.contextMenuStripCopyToClipboard.Text = "Indicate to copy to clipboard";
+			this.toolTip.SetToolTip(this.contextMenuStripCopyToClipboard, "Indicate to copy to clipboard");
+			// 
+			// toolStripMenuItemCopyToClipboard
+			// 
+			this.toolStripMenuItemCopyToClipboard.AccessibleDescription = "Copy to clipboard";
+			this.toolStripMenuItemCopyToClipboard.AccessibleName = "Copy to clipboard";
+			this.toolStripMenuItemCopyToClipboard.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemCopyToClipboard.AutoToolTip = true;
+			this.toolStripMenuItemCopyToClipboard.Image = global::FileDateTimeManipulator.Properties.Resources.fatcow_clipboard_empty_16;
+			this.toolStripMenuItemCopyToClipboard.Name = "toolStripMenuItemCopyToClipboard";
+			this.toolStripMenuItemCopyToClipboard.Size = new System.Drawing.Size(169, 22);
+			this.toolStripMenuItemCopyToClipboard.Text = "&Copy to clipboard";
+			this.toolStripMenuItemCopyToClipboard.Click += new System.EventHandler(this.ToolStripMenuItemCopyToClipboard_Click);
+			this.toolStripMenuItemCopyToClipboard.MouseEnter += new System.EventHandler(this.SetStatusbarOfToolStripMenuItem_Enter);
+			this.toolStripMenuItemCopyToClipboard.MouseHover += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// dateTimePickerAccessed
 			// 
 			this.dateTimePickerAccessed.AccessibleDescription = "Set the last access date of the file";
 			this.dateTimePickerAccessed.AccessibleName = "Last access date preview of the file";
+			this.dateTimePickerAccessed.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
 			this.dateTimePickerAccessed.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.dateTimePickerAccessed.ContextMenuStrip = this.contextMenuStripCopyToClipboard;
 			this.dateTimePickerAccessed.CustomFormat = "dd.MM.yyyy HH:mm:ss";
 			this.dateTimePickerAccessed.Enabled = false;
 			this.dateTimePickerAccessed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -269,20 +324,22 @@
 			this.dateTimePickerAccessed.ShowCheckBox = true;
 			this.dateTimePickerAccessed.ShowUpDown = true;
 			this.dateTimePickerAccessed.Size = new System.Drawing.Size(168, 20);
-			this.dateTimePickerAccessed.TabIndex = 4;
+			this.dateTimePickerAccessed.TabIndex = 3;
 			this.toolTip.SetToolTip(this.dateTimePickerAccessed, "Last access date preview of the file");
-			this.dateTimePickerAccessed.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.dateTimePickerAccessed.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.dateTimePickerAccessed.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.dateTimePickerAccessed.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.dateTimePickerAccessed.Enter += new System.EventHandler(this.DateTimePickerAccessed_Enter);
+			this.dateTimePickerAccessed.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.dateTimePickerAccessed.MouseEnter += new System.EventHandler(this.DateTimePickerAccessed_Enter);
+			this.dateTimePickerAccessed.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// dateTimePickerCreated
 			// 
 			this.dateTimePickerCreated.AccessibleDescription = "Set the creation date of the file";
 			this.dateTimePickerCreated.AccessibleName = "Creation date preview of the file";
+			this.dateTimePickerCreated.AccessibleRole = System.Windows.Forms.AccessibleRole.SpinButton;
 			this.dateTimePickerCreated.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.dateTimePickerCreated.ContextMenuStrip = this.contextMenuStripCopyToClipboard;
 			this.dateTimePickerCreated.CustomFormat = "dd.MM.yyyy HH:mm:ss";
 			this.dateTimePickerCreated.Enabled = false;
 			this.dateTimePickerCreated.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -294,10 +351,10 @@
 			this.dateTimePickerCreated.Size = new System.Drawing.Size(168, 20);
 			this.dateTimePickerCreated.TabIndex = 1;
 			this.toolTip.SetToolTip(this.dateTimePickerCreated, "Creation date preview of the file");
-			this.dateTimePickerCreated.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.dateTimePickerCreated.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.dateTimePickerCreated.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.dateTimePickerCreated.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.dateTimePickerCreated.Enter += new System.EventHandler(this.DateTimePickerCreated_Enter);
+			this.dateTimePickerCreated.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.dateTimePickerCreated.MouseEnter += new System.EventHandler(this.DateTimePickerCreated_Enter);
+			this.dateTimePickerCreated.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonLastWriteDateUtc
 			// 
@@ -315,10 +372,10 @@
 			this.toolTip.SetToolTip(this.radioButtonLastWriteDateUtc, "Convert the last write date to the universal time");
 			this.radioButtonLastWriteDateUtc.UseVisualStyleBackColor = true;
 			this.radioButtonLastWriteDateUtc.CheckedChanged += new System.EventHandler(this.RadioButtonLastWriteDateUtc_CheckedChanged);
-			this.radioButtonLastWriteDateUtc.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonLastWriteDateUtc.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonLastWriteDateUtc.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonLastWriteDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonLastWriteDateUtc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonLastWriteDateUtc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonLastWriteDateUtc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonLastWriteDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonLastWriteDateLocalTime
 			// 
@@ -338,10 +395,10 @@
 			this.toolTip.SetToolTip(this.radioButtonLastWriteDateLocalTime, "Convert the last write date to the local time");
 			this.radioButtonLastWriteDateLocalTime.UseVisualStyleBackColor = true;
 			this.radioButtonLastWriteDateLocalTime.CheckedChanged += new System.EventHandler(this.RadioButtonLastWriteDateLocalTime_CheckedChanged);
-			this.radioButtonLastWriteDateLocalTime.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonLastWriteDateLocalTime.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonLastWriteDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonLastWriteDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonLastWriteDateLocalTime.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonLastWriteDateLocalTime.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonLastWriteDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonLastWriteDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonCreationDateUtc
 			// 
@@ -359,10 +416,10 @@
 			this.toolTip.SetToolTip(this.radioButtonCreationDateUtc, "Convert the creation date to the universal time");
 			this.radioButtonCreationDateUtc.UseVisualStyleBackColor = true;
 			this.radioButtonCreationDateUtc.CheckedChanged += new System.EventHandler(this.RadioButtonCreationDateUtc_CheckedChanged);
-			this.radioButtonCreationDateUtc.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonCreationDateUtc.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonCreationDateUtc.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonCreationDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonCreationDateUtc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonCreationDateUtc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonCreationDateUtc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonCreationDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonCreationDateLocalTime
 			// 
@@ -382,10 +439,10 @@
 			this.toolTip.SetToolTip(this.radioButtonCreationDateLocalTime, "Convert the creation date to the local time");
 			this.radioButtonCreationDateLocalTime.UseVisualStyleBackColor = true;
 			this.radioButtonCreationDateLocalTime.CheckedChanged += new System.EventHandler(this.RadioButtonCreationDateLocalTime_CheckedChanged);
-			this.radioButtonCreationDateLocalTime.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonCreationDateLocalTime.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonCreationDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonCreationDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonCreationDateLocalTime.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonCreationDateLocalTime.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonCreationDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonCreationDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// textBoxLastWriteDate
 			// 
@@ -400,13 +457,13 @@
 			this.textBoxLastWriteDate.Name = "textBoxLastWriteDate";
 			this.textBoxLastWriteDate.ReadOnly = true;
 			this.textBoxLastWriteDate.Size = new System.Drawing.Size(168, 20);
-			this.textBoxLastWriteDate.TabIndex = 7;
+			this.textBoxLastWriteDate.TabIndex = 5;
 			this.textBoxLastWriteDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.toolTip.SetToolTip(this.textBoxLastWriteDate, "Last write date of the file");
-			this.textBoxLastWriteDate.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.textBoxLastWriteDate.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.textBoxLastWriteDate.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.textBoxLastWriteDate.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.textBoxLastWriteDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.textBoxLastWriteDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.textBoxLastWriteDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.textBoxLastWriteDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// textBoxLastAccessDate
 			// 
@@ -421,13 +478,13 @@
 			this.textBoxLastAccessDate.Name = "textBoxLastAccessDate";
 			this.textBoxLastAccessDate.ReadOnly = true;
 			this.textBoxLastAccessDate.Size = new System.Drawing.Size(168, 20);
-			this.textBoxLastAccessDate.TabIndex = 4;
+			this.textBoxLastAccessDate.TabIndex = 3;
 			this.textBoxLastAccessDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.toolTip.SetToolTip(this.textBoxLastAccessDate, "Last access date of the file");
-			this.textBoxLastAccessDate.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.textBoxLastAccessDate.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.textBoxLastAccessDate.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.textBoxLastAccessDate.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.textBoxLastAccessDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.textBoxLastAccessDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.textBoxLastAccessDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.textBoxLastAccessDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// textBoxCreationDate
 			// 
@@ -445,10 +502,10 @@
 			this.textBoxCreationDate.TabIndex = 1;
 			this.textBoxCreationDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.toolTip.SetToolTip(this.textBoxCreationDate, "Creation date of the file");
-			this.textBoxCreationDate.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.textBoxCreationDate.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.textBoxCreationDate.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.textBoxCreationDate.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.textBoxCreationDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.textBoxCreationDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.textBoxCreationDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.textBoxCreationDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonLastAccessDateUtc
 			// 
@@ -466,10 +523,10 @@
 			this.toolTip.SetToolTip(this.radioButtonLastAccessDateUtc, "Convert the last access date to the universal time");
 			this.radioButtonLastAccessDateUtc.UseVisualStyleBackColor = true;
 			this.radioButtonLastAccessDateUtc.CheckedChanged += new System.EventHandler(this.RadioButtonLastAccessDateUtc_CheckedChanged);
-			this.radioButtonLastAccessDateUtc.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonLastAccessDateUtc.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonLastAccessDateUtc.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonLastAccessDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonLastAccessDateUtc.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonLastAccessDateUtc.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonLastAccessDateUtc.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonLastAccessDateUtc.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// radioButtonLastAccessDateLocalTime
 			// 
@@ -489,10 +546,10 @@
 			this.toolTip.SetToolTip(this.radioButtonLastAccessDateLocalTime, "Convert the last access date to the local time");
 			this.radioButtonLastAccessDateLocalTime.UseVisualStyleBackColor = true;
 			this.radioButtonLastAccessDateLocalTime.CheckedChanged += new System.EventHandler(this.RadioButtonLastAccessDateLocalTime_CheckedChanged);
-			this.radioButtonLastAccessDateLocalTime.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonLastAccessDateLocalTime.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.radioButtonLastAccessDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.radioButtonLastAccessDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.radioButtonLastAccessDateLocalTime.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonLastAccessDateLocalTime.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.radioButtonLastAccessDateLocalTime.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.radioButtonLastAccessDateLocalTime.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// textBoxPath
 			// 
@@ -502,16 +559,137 @@
 			this.textBoxPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.textBoxPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBoxPath.Location = new System.Drawing.Point(40, 10);
+			this.textBoxPath.Location = new System.Drawing.Point(9, 244);
 			this.textBoxPath.Name = "textBoxPath";
 			this.textBoxPath.ReadOnly = true;
-			this.textBoxPath.Size = new System.Drawing.Size(282, 20);
-			this.textBoxPath.TabIndex = 7;
+			this.textBoxPath.Size = new System.Drawing.Size(525, 20);
+			this.textBoxPath.TabIndex = 2;
 			this.toolTip.SetToolTip(this.textBoxPath, "Full path name");
-			this.textBoxPath.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.textBoxPath.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.textBoxPath.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.textBoxPath.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.textBoxPath.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.textBoxPath.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.textBoxPath.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.textBoxPath.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// contextMenuStripIcons
+			// 
+			this.contextMenuStripIcons.AccessibleDescription = "Change the icon theme";
+			this.contextMenuStripIcons.AccessibleName = "Icon themes";
+			this.contextMenuStripIcons.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
+			this.contextMenuStripIcons.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemFatcowIcons,
+            this.toolStripMenuItemFugueIcons,
+            this.toolStripMenuItemSilkIcons});
+			this.contextMenuStripIcons.Name = "contextMenuStripIcons";
+			this.contextMenuStripIcons.ShowCheckMargin = true;
+			this.contextMenuStripIcons.ShowImageMargin = false;
+			this.contextMenuStripIcons.Size = new System.Drawing.Size(144, 70);
+			this.contextMenuStripIcons.TabStop = true;
+			this.contextMenuStripIcons.Text = "Icon themes";
+			this.toolTip.SetToolTip(this.contextMenuStripIcons, "Change the icon theme");
+			// 
+			// toolStripMenuItemFatcowIcons
+			// 
+			this.toolStripMenuItemFatcowIcons.AccessibleDescription = "Change to the Fatcow icons";
+			this.toolStripMenuItemFatcowIcons.AccessibleName = "Fatcow icons";
+			this.toolStripMenuItemFatcowIcons.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemFatcowIcons.AutoToolTip = true;
+			this.toolStripMenuItemFatcowIcons.Checked = true;
+			this.toolStripMenuItemFatcowIcons.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.toolStripMenuItemFatcowIcons.Name = "toolStripMenuItemFatcowIcons";
+			this.toolStripMenuItemFatcowIcons.Size = new System.Drawing.Size(143, 22);
+			this.toolStripMenuItemFatcowIcons.Text = "Fatcow icons";
+			this.toolStripMenuItemFatcowIcons.MouseEnter += new System.EventHandler(this.ToolStripMenuItemFatcowIcons_MouseEnter);
+			this.toolStripMenuItemFatcowIcons.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// toolStripMenuItemFugueIcons
+			// 
+			this.toolStripMenuItemFugueIcons.AccessibleDescription = "Change to the Fugue icons";
+			this.toolStripMenuItemFugueIcons.AccessibleName = "Fugue icons";
+			this.toolStripMenuItemFugueIcons.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemFugueIcons.AutoToolTip = true;
+			this.toolStripMenuItemFugueIcons.Name = "toolStripMenuItemFugueIcons";
+			this.toolStripMenuItemFugueIcons.Size = new System.Drawing.Size(143, 22);
+			this.toolStripMenuItemFugueIcons.Text = "Fugue icons";
+			this.toolStripMenuItemFugueIcons.MouseEnter += new System.EventHandler(this.ToolStripMenuItemFugueIcons_MouseEnter);
+			this.toolStripMenuItemFugueIcons.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// toolStripMenuItemSilkIcons
+			// 
+			this.toolStripMenuItemSilkIcons.AccessibleDescription = "Change to the Silk icons";
+			this.toolStripMenuItemSilkIcons.AccessibleName = "Silk  icons";
+			this.toolStripMenuItemSilkIcons.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
+			this.toolStripMenuItemSilkIcons.AutoToolTip = true;
+			this.toolStripMenuItemSilkIcons.Name = "toolStripMenuItemSilkIcons";
+			this.toolStripMenuItemSilkIcons.Size = new System.Drawing.Size(143, 22);
+			this.toolStripMenuItemSilkIcons.Text = "Silk icons";
+			this.toolStripMenuItemSilkIcons.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSilkIcons_MouseEnter);
+			this.toolStripMenuItemSilkIcons.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// buttonSelectFolders
+			// 
+			this.buttonSelectFolders.AccessibleDescription = "Click to select folder(s)";
+			this.buttonSelectFolders.AccessibleName = "Select folder(s)";
+			this.buttonSelectFolders.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonSelectFolders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonSelectFolders.Image = global::FileDateTimeManipulator.Properties.Resources.fatcow_folder_16;
+			this.buttonSelectFolders.Location = new System.Drawing.Point(14, 12);
+			this.buttonSelectFolders.Name = "buttonSelectFolders";
+			this.buttonSelectFolders.Size = new System.Drawing.Size(102, 23);
+			this.buttonSelectFolders.TabIndex = 0;
+			this.buttonSelectFolders.Text = "Select f&older(s)";
+			this.buttonSelectFolders.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonSelectFolders.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.toolTip.SetToolTip(this.buttonSelectFolders, "Click to selected folder(s)");
+			this.buttonSelectFolders.UseVisualStyleBackColor = true;
+			this.buttonSelectFolders.Click += new System.EventHandler(this.ButtonSelectFolder_Click);
+			this.buttonSelectFolders.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSelectFolders.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonSelectFolders.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSelectFolders.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// buttonRemoveItem
+			// 
+			this.buttonRemoveItem.AccessibleDescription = "Click to remove a file or a folder";
+			this.buttonRemoveItem.AccessibleName = "Remove item";
+			this.buttonRemoveItem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonRemoveItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonRemoveItem.Image = global::FileDateTimeManipulator.Properties.Resources.fatcow_delete_16;
+			this.buttonRemoveItem.Location = new System.Drawing.Point(437, 12);
+			this.buttonRemoveItem.Name = "buttonRemoveItem";
+			this.buttonRemoveItem.Size = new System.Drawing.Size(94, 23);
+			this.buttonRemoveItem.TabIndex = 2;
+			this.buttonRemoveItem.Text = "&Remove";
+			this.buttonRemoveItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonRemoveItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.toolTip.SetToolTip(this.buttonRemoveItem, "Click to remove a file or a folder");
+			this.buttonRemoveItem.UseVisualStyleBackColor = true;
+			this.buttonRemoveItem.Click += new System.EventHandler(this.ButtonRemoveItem_Click);
+			this.buttonRemoveItem.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonRemoveItem.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonRemoveItem.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonRemoveItem.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// buttonSelectFile
+			// 
+			this.buttonSelectFile.AccessibleDescription = "Click to selected a file";
+			this.buttonSelectFile.AccessibleName = "Select file";
+			this.buttonSelectFile.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.buttonSelectFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonSelectFile.Image = global::FileDateTimeManipulator.Properties.Resources.fatcow_page_white_16;
+			this.buttonSelectFile.Location = new System.Drawing.Point(225, 12);
+			this.buttonSelectFile.Name = "buttonSelectFile";
+			this.buttonSelectFile.Size = new System.Drawing.Size(94, 23);
+			this.buttonSelectFile.TabIndex = 1;
+			this.buttonSelectFile.Text = "&Select file(s)";
+			this.buttonSelectFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.buttonSelectFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.toolTip.SetToolTip(this.buttonSelectFile, "Click to selected a file");
+			this.buttonSelectFile.UseVisualStyleBackColor = true;
+			this.buttonSelectFile.Click += new System.EventHandler(this.ButtonSelectFiles_Click);
+			this.buttonSelectFile.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSelectFile.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonSelectFile.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonSelectFile.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// buttonClose
 			// 
@@ -520,7 +698,7 @@
 			this.buttonClose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.buttonClose.Image = global::FileDateTime_Manipulator.Properties.Resources.door_in;
+			this.buttonClose.Image = global::FileDateTimeManipulator.Properties.Resources.fatcow_door_in_16;
 			this.buttonClose.Location = new System.Drawing.Point(464, 12);
 			this.buttonClose.Name = "buttonClose";
 			this.buttonClose.Size = new System.Drawing.Size(67, 23);
@@ -531,10 +709,10 @@
 			this.toolTip.SetToolTip(this.buttonClose, "Close the application");
 			this.buttonClose.UseVisualStyleBackColor = true;
 			this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
-			this.buttonClose.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.buttonClose.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.buttonClose.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.buttonClose.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.buttonClose.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonClose.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonClose.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonClose.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// buttonInfo
 			// 
@@ -542,7 +720,7 @@
 			this.buttonInfo.AccessibleName = "Info button";
 			this.buttonInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.buttonInfo.Image = global::FileDateTime_Manipulator.Properties.Resources.information;
+			this.buttonInfo.Image = global::FileDateTimeManipulator.Properties.Resources.fatcow_information_16;
 			this.buttonInfo.Location = new System.Drawing.Point(11, 12);
 			this.buttonInfo.Name = "buttonInfo";
 			this.buttonInfo.Size = new System.Drawing.Size(67, 23);
@@ -553,10 +731,10 @@
 			this.toolTip.SetToolTip(this.buttonInfo, "Show some information");
 			this.buttonInfo.UseVisualStyleBackColor = true;
 			this.buttonInfo.Click += new System.EventHandler(this.ButtonInfo_Click);
-			this.buttonInfo.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.buttonInfo.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.buttonInfo.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.buttonInfo.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.buttonInfo.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonInfo.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonInfo.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonInfo.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// buttonApply
 			// 
@@ -565,7 +743,7 @@
 			this.buttonApply.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
 			this.buttonApply.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.buttonApply.Enabled = false;
-			this.buttonApply.Image = global::FileDateTime_Manipulator.Properties.Resources.tick_button;
+			this.buttonApply.Image = global::FileDateTimeManipulator.Properties.Resources.fatcow_tick_button_16;
 			this.buttonApply.Location = new System.Drawing.Point(239, 12);
 			this.buttonApply.Name = "buttonApply";
 			this.buttonApply.Size = new System.Drawing.Size(67, 23);
@@ -576,54 +754,76 @@
 			this.toolTip.SetToolTip(this.buttonApply, "Apply the changes");
 			this.buttonApply.UseVisualStyleBackColor = true;
 			this.buttonApply.Click += new System.EventHandler(this.ButtonApply_Click);
-			this.buttonApply.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.buttonApply.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.buttonApply.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.buttonApply.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.buttonApply.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonApply.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonApply.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonApply.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// buttonSelectFile
+			// labelNewCreationDate
 			// 
-			this.buttonSelectFile.AccessibleDescription = "Click to selected a file";
-			this.buttonSelectFile.AccessibleName = "Select file";
-			this.buttonSelectFile.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonSelectFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonSelectFile.Image = global::FileDateTime_Manipulator.Properties.Resources.page_white;
-			this.buttonSelectFile.Location = new System.Drawing.Point(450, 9);
-			this.buttonSelectFile.Name = "buttonSelectFile";
-			this.buttonSelectFile.Size = new System.Drawing.Size(84, 23);
-			this.buttonSelectFile.TabIndex = 8;
-			this.buttonSelectFile.Text = "&Select file";
-			this.buttonSelectFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonSelectFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.toolTip.SetToolTip(this.buttonSelectFile, "Click to selected a file");
-			this.buttonSelectFile.UseVisualStyleBackColor = true;
-			this.buttonSelectFile.Click += new System.EventHandler(this.ButtonSelectFile_Click);
-			this.buttonSelectFile.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.buttonSelectFile.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.buttonSelectFile.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.buttonSelectFile.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.labelNewCreationDate.AccessibleDescription = "Indicate to set the new creation date";
+			this.labelNewCreationDate.AccessibleName = "New creation date";
+			this.labelNewCreationDate.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelNewCreationDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.labelNewCreationDate.AutoSize = true;
+			this.labelNewCreationDate.Enabled = false;
+			this.labelNewCreationDate.Location = new System.Drawing.Point(3, 0);
+			this.labelNewCreationDate.Name = "labelNewCreationDate";
+			this.labelNewCreationDate.Size = new System.Drawing.Size(168, 13);
+			this.labelNewCreationDate.TabIndex = 0;
+			this.labelNewCreationDate.Text = "Set new creation date (&4):";
+			this.labelNewCreationDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip.SetToolTip(this.labelNewCreationDate, "New creation date");
+			this.labelNewCreationDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelNewCreationDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelNewCreationDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelNewCreationDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// buttonSelectFolder
+			// labelNewWriteDate
 			// 
-			this.buttonSelectFolder.AccessibleDescription = "Click to selected a folder";
-			this.buttonSelectFolder.AccessibleName = "Select folder";
-			this.buttonSelectFolder.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-			this.buttonSelectFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonSelectFolder.Image = global::FileDateTime_Manipulator.Properties.Resources.folder;
-			this.buttonSelectFolder.Location = new System.Drawing.Point(328, 9);
-			this.buttonSelectFolder.Name = "buttonSelectFolder";
-			this.buttonSelectFolder.Size = new System.Drawing.Size(94, 23);
-			this.buttonSelectFolder.TabIndex = 12;
-			this.buttonSelectFolder.Text = "Select f&older";
-			this.buttonSelectFolder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.buttonSelectFolder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.toolTip.SetToolTip(this.buttonSelectFolder, "Click to selected a folder");
-			this.buttonSelectFolder.UseVisualStyleBackColor = true;
-			this.buttonSelectFolder.Click += new System.EventHandler(this.ButtonSelectFolder_Click);
-			this.buttonSelectFolder.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.buttonSelectFolder.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.buttonSelectFolder.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.buttonSelectFolder.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.labelNewWriteDate.AccessibleDescription = "Indicate to set the new write date";
+			this.labelNewWriteDate.AccessibleName = "New write date";
+			this.labelNewWriteDate.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelNewWriteDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.labelNewWriteDate.AutoSize = true;
+			this.labelNewWriteDate.Enabled = false;
+			this.labelNewWriteDate.Location = new System.Drawing.Point(351, 0);
+			this.labelNewWriteDate.Name = "labelNewWriteDate";
+			this.labelNewWriteDate.Size = new System.Drawing.Size(168, 13);
+			this.labelNewWriteDate.TabIndex = 4;
+			this.labelNewWriteDate.Text = "Set new write date (&6):";
+			this.labelNewWriteDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip.SetToolTip(this.labelNewWriteDate, "New write date");
+			this.labelNewWriteDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelNewWriteDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelNewWriteDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelNewWriteDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelNewAccessDate
+			// 
+			this.labelNewAccessDate.AccessibleDescription = "Indicate to set the new access date";
+			this.labelNewAccessDate.AccessibleName = "New access date";
+			this.labelNewAccessDate.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.labelNewAccessDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.labelNewAccessDate.AutoSize = true;
+			this.labelNewAccessDate.Enabled = false;
+			this.labelNewAccessDate.Location = new System.Drawing.Point(177, 0);
+			this.labelNewAccessDate.Name = "labelNewAccessDate";
+			this.labelNewAccessDate.Size = new System.Drawing.Size(168, 13);
+			this.labelNewAccessDate.TabIndex = 2;
+			this.labelNewAccessDate.Text = "Set new access date (&5):";
+			this.labelNewAccessDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.toolTip.SetToolTip(this.labelNewAccessDate, "new access date");
+			this.labelNewAccessDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelNewAccessDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelNewAccessDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelNewAccessDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// statusStrip
 			// 
@@ -632,21 +832,31 @@
 			this.statusStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
 			this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
+            this.toolStripStatusLabel,
+            this.toolStripProgressBar});
 			this.statusStrip.Location = new System.Drawing.Point(0, 0);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.ShowItemToolTips = true;
 			this.statusStrip.Size = new System.Drawing.Size(546, 22);
 			this.statusStrip.SizingGrip = false;
-			this.statusStrip.TabIndex = 10;
+			this.statusStrip.TabIndex = 0;
 			this.statusStrip.Text = "statusStrip";
 			// 
 			// toolStripStatusLabel
 			// 
+			this.toolStripStatusLabel.AccessibleDescription = "Show some information";
+			this.toolStripStatusLabel.AccessibleName = "Information text";
 			this.toolStripStatusLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.toolStripStatusLabel.Name = "toolStripStatusLabel";
 			this.toolStripStatusLabel.Size = new System.Drawing.Size(112, 17);
 			this.toolStripStatusLabel.Text = "toolStripStatusLabel";
+			// 
+			// toolStripProgressBar
+			// 
+			this.toolStripProgressBar.Name = "toolStripProgressBar";
+			this.toolStripProgressBar.Size = new System.Drawing.Size(100, 16);
+			this.toolStripProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+			this.toolStripProgressBar.Visible = false;
 			// 
 			// toolStripContainer
 			// 
@@ -658,41 +868,120 @@
 			// 
 			this.toolStripContainer.BottomToolStripPanel.Controls.Add(this.statusStrip);
 			// 
-			// toolStripContainer.ContentPanel
+			// toolStripContainer.panelContent
 			// 
+			this.toolStripContainer.ContentPanel.AccessibleDescription = "Panel of list and information";
+			this.toolStripContainer.ContentPanel.AccessibleName = "List and information panel";
 			this.toolStripContainer.ContentPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
-			this.toolStripContainer.ContentPanel.Controls.Add(this.labelOr);
-			this.toolStripContainer.ContentPanel.Controls.Add(this.buttonSelectFolder);
+			this.toolStripContainer.ContentPanel.Controls.Add(this.panelAddOrRemove);
+			this.toolStripContainer.ContentPanel.Controls.Add(this.listViewFoldersAndFiles);
 			this.toolStripContainer.ContentPanel.Controls.Add(this.tableLayoutPanelSetDate);
 			this.toolStripContainer.ContentPanel.Controls.Add(this.panelButtons);
 			this.toolStripContainer.ContentPanel.Controls.Add(this.tableLayoutPanelGetDate);
-			this.toolStripContainer.ContentPanel.Controls.Add(this.buttonSelectFile);
 			this.toolStripContainer.ContentPanel.Controls.Add(this.textBoxPath);
-			this.toolStripContainer.ContentPanel.Controls.Add(this.labelPath);
-			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(546, 231);
+			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(546, 474);
 			this.toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.toolStripContainer.Location = new System.Drawing.Point(0, 0);
 			this.toolStripContainer.Name = "toolStripContainer";
-			this.toolStripContainer.Size = new System.Drawing.Size(546, 253);
+			this.toolStripContainer.Size = new System.Drawing.Size(546, 496);
 			this.toolStripContainer.TabIndex = 11;
 			this.toolStripContainer.Text = "toolStripContainer";
 			// 
-			// labelOr
+			// panelAddOrRemove
 			// 
-			this.labelOr.AccessibleDescription = "Select a folder or a file";
-			this.labelOr.AccessibleName = "Folder or file";
-			this.labelOr.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelOr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.labelOr.AutoSize = true;
-			this.labelOr.Location = new System.Drawing.Point(428, 14);
-			this.labelOr.Name = "labelOr";
-			this.labelOr.Size = new System.Drawing.Size(16, 13);
-			this.labelOr.TabIndex = 13;
-			this.labelOr.Text = "or";
-			this.labelOr.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.labelOr.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.labelOr.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.labelOr.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.panelAddOrRemove.AccessibleDescription = "Panel for buttons";
+			this.panelAddOrRemove.AccessibleName = "Button panel";
+			this.panelAddOrRemove.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
+			this.panelAddOrRemove.BackColor = System.Drawing.SystemColors.Menu;
+			this.panelAddOrRemove.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panelAddOrRemove.Controls.Add(this.buttonSelectFolders);
+			this.panelAddOrRemove.Controls.Add(this.buttonRemoveItem);
+			this.panelAddOrRemove.Controls.Add(this.buttonSelectFile);
+			this.panelAddOrRemove.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panelAddOrRemove.Location = new System.Drawing.Point(0, 0);
+			this.panelAddOrRemove.Name = "panelAddOrRemove";
+			this.panelAddOrRemove.Size = new System.Drawing.Size(546, 49);
+			this.panelAddOrRemove.TabIndex = 0;
+			// 
+			// listViewFoldersAndFiles
+			// 
+			this.listViewFoldersAndFiles.AllowColumnReorder = true;
+			this.listViewFoldersAndFiles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.listViewFoldersAndFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderType,
+            this.columnHeaderName,
+            this.columnHeaderPath,
+            this.columnHeaderCreationDate,
+            this.columnHeaderLastAccessDate,
+            this.columnHeaderLastWriteDate,
+            this.columnHeaderCreationDatePreview,
+            this.columnHeaderLastAccessDatePreview,
+            this.columnHeaderLateWriteDatePreview});
+			this.listViewFoldersAndFiles.FullRowSelect = true;
+			this.listViewFoldersAndFiles.GridLines = true;
+			this.listViewFoldersAndFiles.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+			this.listViewFoldersAndFiles.HideSelection = false;
+			this.listViewFoldersAndFiles.Location = new System.Drawing.Point(9, 55);
+			this.listViewFoldersAndFiles.MultiSelect = false;
+			this.listViewFoldersAndFiles.Name = "listViewFoldersAndFiles";
+			this.listViewFoldersAndFiles.ShowItemToolTips = true;
+			this.listViewFoldersAndFiles.Size = new System.Drawing.Size(525, 183);
+			this.listViewFoldersAndFiles.StateImageList = this.imageListFatcow;
+			this.listViewFoldersAndFiles.TabIndex = 1;
+			this.listViewFoldersAndFiles.UseCompatibleStateImageBehavior = false;
+			this.listViewFoldersAndFiles.View = System.Windows.Forms.View.Details;
+			this.listViewFoldersAndFiles.SelectedIndexChanged += new System.EventHandler(this.ListViewFoldersAndFiles_SelectedIndexChanged);
+			// 
+			// columnHeaderType
+			// 
+			this.columnHeaderType.Text = "Type";
+			// 
+			// columnHeaderName
+			// 
+			this.columnHeaderName.Text = "Name";
+			this.columnHeaderName.Width = 120;
+			// 
+			// columnHeaderPath
+			// 
+			this.columnHeaderPath.Text = "Path";
+			this.columnHeaderPath.Width = 120;
+			// 
+			// columnHeaderCreationDate
+			// 
+			this.columnHeaderCreationDate.Text = "Creation date";
+			this.columnHeaderCreationDate.Width = 120;
+			// 
+			// columnHeaderLastAccessDate
+			// 
+			this.columnHeaderLastAccessDate.Text = "Last access date";
+			this.columnHeaderLastAccessDate.Width = 120;
+			// 
+			// columnHeaderLastWriteDate
+			// 
+			this.columnHeaderLastWriteDate.Text = "Last write date";
+			this.columnHeaderLastWriteDate.Width = 120;
+			// 
+			// columnHeaderCreationDatePreview
+			// 
+			this.columnHeaderCreationDatePreview.Text = "Creation date preview";
+			this.columnHeaderCreationDatePreview.Width = 120;
+			// 
+			// columnHeaderLastAccessDatePreview
+			// 
+			this.columnHeaderLastAccessDatePreview.Text = "Last access date preview";
+			this.columnHeaderLastAccessDatePreview.Width = 120;
+			// 
+			// columnHeaderLateWriteDatePreview
+			// 
+			this.columnHeaderLateWriteDatePreview.Text = "Last write date preview";
+			this.columnHeaderLateWriteDatePreview.Width = 120;
+			// 
+			// imageListFatcow
+			// 
+			this.imageListFatcow.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListFatcow.ImageStream")));
+			this.imageListFatcow.TransparentColor = System.Drawing.Color.Transparent;
+			this.imageListFatcow.Images.SetKeyName(0, "fatcow_folder_16.png");
+			this.imageListFatcow.Images.SetKeyName(1, "fatcow_page_white_16.png");
 			// 
 			// tableLayoutPanelSetDate
 			// 
@@ -714,7 +1003,7 @@
 			this.tableLayoutPanelSetDate.Controls.Add(this.labelNewWriteDate, 2, 0);
 			this.tableLayoutPanelSetDate.Controls.Add(this.labelNewAccessDate, 1, 0);
 			this.tableLayoutPanelSetDate.Controls.Add(this.tableLayoutPanelSetCreationDateFormat, 0, 2);
-			this.tableLayoutPanelSetDate.Location = new System.Drawing.Point(12, 112);
+			this.tableLayoutPanelSetDate.Location = new System.Drawing.Point(12, 347);
 			this.tableLayoutPanelSetDate.Name = "tableLayoutPanelSetDate";
 			this.tableLayoutPanelSetDate.RowCount = 3;
 			this.tableLayoutPanelSetDate.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -722,25 +1011,7 @@
 			this.tableLayoutPanelSetDate.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanelSetDate.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanelSetDate.Size = new System.Drawing.Size(522, 67);
-			this.tableLayoutPanelSetDate.TabIndex = 10;
-			// 
-			// labelNewCreationDate
-			// 
-			this.labelNewCreationDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.labelNewCreationDate.AutoSize = true;
-			this.labelNewCreationDate.Enabled = false;
-			this.labelNewCreationDate.Location = new System.Drawing.Point(3, 0);
-			this.labelNewCreationDate.Name = "labelNewCreationDate";
-			this.labelNewCreationDate.Size = new System.Drawing.Size(168, 13);
-			this.labelNewCreationDate.TabIndex = 0;
-			this.labelNewCreationDate.Text = "Set new creation date (&4):";
-			this.labelNewCreationDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.labelNewCreationDate.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.labelNewCreationDate.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.labelNewCreationDate.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.labelNewCreationDate.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.tableLayoutPanelSetDate.TabIndex = 4;
 			// 
 			// tableLayoutPanelSetLastWriteDateFormat
 			// 
@@ -774,43 +1045,7 @@
 			this.tableLayoutPanelSetLastAccessDateFormat.RowCount = 1;
 			this.tableLayoutPanelSetLastAccessDateFormat.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanelSetLastAccessDateFormat.Size = new System.Drawing.Size(147, 23);
-			this.tableLayoutPanelSetLastAccessDateFormat.TabIndex = 5;
-			// 
-			// labelNewWriteDate
-			// 
-			this.labelNewWriteDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.labelNewWriteDate.AutoSize = true;
-			this.labelNewWriteDate.Enabled = false;
-			this.labelNewWriteDate.Location = new System.Drawing.Point(351, 0);
-			this.labelNewWriteDate.Name = "labelNewWriteDate";
-			this.labelNewWriteDate.Size = new System.Drawing.Size(168, 13);
-			this.labelNewWriteDate.TabIndex = 6;
-			this.labelNewWriteDate.Text = "Set new write date (&6):";
-			this.labelNewWriteDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.labelNewWriteDate.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.labelNewWriteDate.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.labelNewWriteDate.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.labelNewWriteDate.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
-			// 
-			// labelNewAccessDate
-			// 
-			this.labelNewAccessDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.labelNewAccessDate.AutoSize = true;
-			this.labelNewAccessDate.Enabled = false;
-			this.labelNewAccessDate.Location = new System.Drawing.Point(177, 0);
-			this.labelNewAccessDate.Name = "labelNewAccessDate";
-			this.labelNewAccessDate.Size = new System.Drawing.Size(168, 13);
-			this.labelNewAccessDate.TabIndex = 3;
-			this.labelNewAccessDate.Text = "Set new access date (&5):";
-			this.labelNewAccessDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.labelNewAccessDate.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.labelNewAccessDate.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.labelNewAccessDate.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.labelNewAccessDate.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.tableLayoutPanelSetLastAccessDateFormat.TabIndex = 7;
 			// 
 			// tableLayoutPanelSetCreationDateFormat
 			// 
@@ -827,7 +1062,7 @@
 			this.tableLayoutPanelSetCreationDateFormat.RowCount = 1;
 			this.tableLayoutPanelSetCreationDateFormat.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanelSetCreationDateFormat.Size = new System.Drawing.Size(147, 23);
-			this.tableLayoutPanelSetCreationDateFormat.TabIndex = 2;
+			this.tableLayoutPanelSetCreationDateFormat.TabIndex = 6;
 			// 
 			// panelButtons
 			// 
@@ -836,14 +1071,15 @@
 			this.panelButtons.AccessibleRole = System.Windows.Forms.AccessibleRole.Pane;
 			this.panelButtons.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.panelButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panelButtons.ContextMenuStrip = this.contextMenuStripIcons;
 			this.panelButtons.Controls.Add(this.buttonClose);
 			this.panelButtons.Controls.Add(this.buttonInfo);
 			this.panelButtons.Controls.Add(this.buttonApply);
 			this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panelButtons.Location = new System.Drawing.Point(0, 182);
+			this.panelButtons.Location = new System.Drawing.Point(0, 425);
 			this.panelButtons.Name = "panelButtons";
 			this.panelButtons.Size = new System.Drawing.Size(546, 49);
-			this.panelButtons.TabIndex = 11;
+			this.panelButtons.TabIndex = 5;
 			// 
 			// tableLayoutPanelGetDate
 			// 
@@ -865,14 +1101,14 @@
 			this.tableLayoutPanelGetDate.Controls.Add(this.textBoxLastAccessDate, 1, 1);
 			this.tableLayoutPanelGetDate.Controls.Add(this.textBoxCreationDate, 0, 1);
 			this.tableLayoutPanelGetDate.Controls.Add(this.tableLayoutPanelGetLastAccessDateFormat, 1, 2);
-			this.tableLayoutPanelGetDate.Location = new System.Drawing.Point(12, 36);
+			this.tableLayoutPanelGetDate.Location = new System.Drawing.Point(12, 271);
 			this.tableLayoutPanelGetDate.Name = "tableLayoutPanelGetDate";
 			this.tableLayoutPanelGetDate.RowCount = 3;
 			this.tableLayoutPanelGetDate.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanelGetDate.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanelGetDate.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanelGetDate.Size = new System.Drawing.Size(522, 70);
-			this.tableLayoutPanelGetDate.TabIndex = 9;
+			this.tableLayoutPanelGetDate.TabIndex = 3;
 			// 
 			// tableLayoutPanelGetLastWriteDateFormat
 			// 
@@ -906,11 +1142,11 @@
 			this.tableLayoutPanelGetCreationDateFormat.RowCount = 1;
 			this.tableLayoutPanelGetCreationDateFormat.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanelGetCreationDateFormat.Size = new System.Drawing.Size(147, 25);
-			this.tableLayoutPanelGetCreationDateFormat.TabIndex = 2;
+			this.tableLayoutPanelGetCreationDateFormat.TabIndex = 6;
 			// 
 			// labelCreationDate
 			// 
-			this.labelCreationDate.AccessibleDescription = "Indicate the show the creation date of the file";
+			this.labelCreationDate.AccessibleDescription = "Indicate to show the creation date of the file";
 			this.labelCreationDate.AccessibleName = "Creation date";
 			this.labelCreationDate.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelCreationDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -922,14 +1158,14 @@
 			this.labelCreationDate.TabIndex = 0;
 			this.labelCreationDate.Text = "Creation date (&1):";
 			this.labelCreationDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.labelCreationDate.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.labelCreationDate.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.labelCreationDate.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.labelCreationDate.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.labelCreationDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelCreationDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelCreationDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelCreationDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelLastAccessDate
 			// 
-			this.labelLastAccessDate.AccessibleDescription = "Indicate the show the last access date of the file";
+			this.labelLastAccessDate.AccessibleDescription = "Indicate to show the last access date of the file";
 			this.labelLastAccessDate.AccessibleName = "Last access date";
 			this.labelLastAccessDate.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelLastAccessDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -938,17 +1174,17 @@
 			this.labelLastAccessDate.Location = new System.Drawing.Point(177, 0);
 			this.labelLastAccessDate.Name = "labelLastAccessDate";
 			this.labelLastAccessDate.Size = new System.Drawing.Size(168, 13);
-			this.labelLastAccessDate.TabIndex = 3;
+			this.labelLastAccessDate.TabIndex = 2;
 			this.labelLastAccessDate.Text = "Last access date (&2):";
 			this.labelLastAccessDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.labelLastAccessDate.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.labelLastAccessDate.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.labelLastAccessDate.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.labelLastAccessDate.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.labelLastAccessDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLastAccessDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelLastAccessDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLastAccessDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelLastWriteDate
 			// 
-			this.labelLastWriteDate.AccessibleDescription = "Indicate the show the last write date of the file";
+			this.labelLastWriteDate.AccessibleDescription = "Indicate to show the last write date of the file";
 			this.labelLastWriteDate.AccessibleName = "Last write date";
 			this.labelLastWriteDate.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
 			this.labelLastWriteDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -957,13 +1193,13 @@
 			this.labelLastWriteDate.Location = new System.Drawing.Point(351, 0);
 			this.labelLastWriteDate.Name = "labelLastWriteDate";
 			this.labelLastWriteDate.Size = new System.Drawing.Size(168, 13);
-			this.labelLastWriteDate.TabIndex = 6;
+			this.labelLastWriteDate.TabIndex = 4;
 			this.labelLastWriteDate.Text = "Last write date (&3):";
 			this.labelLastWriteDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.labelLastWriteDate.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.labelLastWriteDate.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.labelLastWriteDate.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.labelLastWriteDate.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.labelLastWriteDate.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLastWriteDate.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelLastWriteDate.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelLastWriteDate.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// tableLayoutPanelGetLastAccessDateFormat
 			// 
@@ -980,23 +1216,21 @@
 			this.tableLayoutPanelGetLastAccessDateFormat.RowCount = 1;
 			this.tableLayoutPanelGetLastAccessDateFormat.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanelGetLastAccessDateFormat.Size = new System.Drawing.Size(147, 25);
-			this.tableLayoutPanelGetLastAccessDateFormat.TabIndex = 5;
+			this.tableLayoutPanelGetLastAccessDateFormat.TabIndex = 7;
 			// 
-			// labelPath
+			// imageListFugue
 			// 
-			this.labelPath.AccessibleDescription = "Inidicate to show the full path name";
-			this.labelPath.AccessibleName = "Path";
-			this.labelPath.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
-			this.labelPath.AutoSize = true;
-			this.labelPath.Location = new System.Drawing.Point(9, 14);
-			this.labelPath.Name = "labelPath";
-			this.labelPath.Size = new System.Drawing.Size(32, 13);
-			this.labelPath.TabIndex = 6;
-			this.labelPath.Text = "&Path:";
-			this.labelPath.Enter += new System.EventHandler(this.SetStatusLabel);
-			this.labelPath.Leave += new System.EventHandler(this.ClearStatusLabel);
-			this.labelPath.MouseEnter += new System.EventHandler(this.SetStatusLabel);
-			this.labelPath.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
+			this.imageListFugue.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListFugue.ImageStream")));
+			this.imageListFugue.TransparentColor = System.Drawing.Color.Transparent;
+			this.imageListFugue.Images.SetKeyName(0, "fugue_folder-horizontal-open_16.png");
+			this.imageListFugue.Images.SetKeyName(1, "fugue_document_16.png");
+			// 
+			// imageListSilk
+			// 
+			this.imageListSilk.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListSilk.ImageStream")));
+			this.imageListSilk.TransparentColor = System.Drawing.Color.Transparent;
+			this.imageListSilk.Images.SetKeyName(0, "silk_folder_16.png");
+			this.imageListSilk.Images.SetKeyName(1, "silk_page_white_16.png");
 			// 
 			// FdtmForm
 			// 
@@ -1006,7 +1240,7 @@
 			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(546, 253);
+			this.ClientSize = new System.Drawing.Size(546, 496);
 			this.Controls.Add(this.toolStripContainer);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1017,6 +1251,8 @@
 			this.Load += new System.EventHandler(this.FdtmForm_Load);
 			this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FdtmForm_DragDrop);
 			this.DragOver += new System.Windows.Forms.DragEventHandler(this.FdtmForm_DragOver);
+			this.contextMenuStripCopyToClipboard.ResumeLayout(false);
+			this.contextMenuStripIcons.ResumeLayout(false);
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
@@ -1025,6 +1261,7 @@
 			this.toolStripContainer.ContentPanel.PerformLayout();
 			this.toolStripContainer.ResumeLayout(false);
 			this.toolStripContainer.PerformLayout();
+			this.panelAddOrRemove.ResumeLayout(false);
 			this.tableLayoutPanelSetDate.ResumeLayout(false);
 			this.tableLayoutPanelSetDate.PerformLayout();
 			this.tableLayoutPanelSetLastWriteDateFormat.ResumeLayout(false);
@@ -1090,10 +1327,30 @@
 		private System.Windows.Forms.RadioButton radioButtonLastAccessDateLocalTime;
 		private System.Windows.Forms.Button buttonSelectFile;
 		private System.Windows.Forms.TextBox textBoxPath;
-		private System.Windows.Forms.Label labelPath;
-		private System.Windows.Forms.Label labelOr;
-		private System.Windows.Forms.Button buttonSelectFolder;
+		private System.Windows.Forms.Button buttonSelectFolders;
 		private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+		private System.Windows.Forms.ListView listViewFoldersAndFiles;
+		private System.Windows.Forms.ColumnHeader columnHeaderType;
+		private System.Windows.Forms.ColumnHeader columnHeaderPath;
+		private System.Windows.Forms.ColumnHeader columnHeaderCreationDate;
+		private System.Windows.Forms.ColumnHeader columnHeaderLastAccessDate;
+		private System.Windows.Forms.ColumnHeader columnHeaderLastWriteDate;
+		private System.Windows.Forms.ColumnHeader columnHeaderCreationDatePreview;
+		private System.Windows.Forms.ColumnHeader columnHeaderLastAccessDatePreview;
+		private System.Windows.Forms.ColumnHeader columnHeaderLateWriteDatePreview;
+		private System.Windows.Forms.Button buttonRemoveItem;
+		private System.Windows.Forms.Panel panelAddOrRemove;
+		private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStripIcons;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFatcowIcons;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFugueIcons;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSilkIcons;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStripCopyToClipboard;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCopyToClipboard;
+		private System.Windows.Forms.ImageList imageListFatcow;
+		private System.Windows.Forms.ColumnHeader columnHeaderName;
+		private System.Windows.Forms.ImageList imageListFugue;
+		private System.Windows.Forms.ImageList imageListSilk;
 	}
 }
 

@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+using System.Resources;
 using System.Runtime.InteropServices;
 
 // Allgemeine Informationen über eine Assembly werden über die folgenden
@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mijo Software")]
 [assembly: AssemblyProduct("FileDateTime Manipulator")]
-[assembly: AssemblyCopyright("Copyright © 2018 Mijo Software")]
+[assembly: AssemblyCopyright("Copyright © 2018-2019 Mijo Software")]
 [assembly: AssemblyTrademark("openForensics")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,6 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder Standardwerte für die Build- und Revisionsnummern verwenden,
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.4.0.5")]
-[assembly: AssemblyFileVersion("1.4.0.5")]
+[assembly: AssemblyVersion("2.0.0.6")]
+[assembly: AssemblyFileVersion("2.0.0.6")]
+[assembly: NeutralResourcesLanguage("en")]
