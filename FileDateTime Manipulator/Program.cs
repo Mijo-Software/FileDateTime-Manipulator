@@ -1,20 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace FileDateTime_Manipulator
+namespace FileDateTimeManipulator
 {
-	static class Program
+	/// <summary>
+	/// Program
+	/// </summary>
+	internal static class Program
 	{
 		/// <summary>
-		/// Der Haupteinstiegspunkt für die Anwendung.
+		/// Main entrance point of the application
 		/// </summary>
 		[STAThread]
-		static void Main()
+		private static void Main()
 		{
 			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FdtmForm());
+			Application.SetCompatibleTextRenderingDefault(defaultValue: false);
+			using (FdtmForm mainWindow = new FdtmForm())
+			{
+				Application.Run(mainForm: mainWindow);
+			}				
 		}
 	}
 }
