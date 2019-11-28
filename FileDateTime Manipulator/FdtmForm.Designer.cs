@@ -847,9 +847,10 @@
 			this.toolStripStatusLabel.AccessibleDescription = "Show some information";
 			this.toolStripStatusLabel.AccessibleName = "Information text";
 			this.toolStripStatusLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
+			this.toolStripStatusLabel.AutoToolTip = true;
 			this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-			this.toolStripStatusLabel.Size = new System.Drawing.Size(112, 17);
-			this.toolStripStatusLabel.Text = "toolStripStatusLabel";
+			this.toolStripStatusLabel.Size = new System.Drawing.Size(92, 17);
+			this.toolStripStatusLabel.Text = "Information text";
 			// 
 			// toolStripProgressBar
 			// 
@@ -868,7 +869,7 @@
 			// 
 			this.toolStripContainer.BottomToolStripPanel.Controls.Add(this.statusStrip);
 			// 
-			// toolStripContainer.panelContent
+			// toolStripContainer.ContentPanel
 			// 
 			this.toolStripContainer.ContentPanel.AccessibleDescription = "Panel of list and information";
 			this.toolStripContainer.ContentPanel.AccessibleName = "List and information panel";

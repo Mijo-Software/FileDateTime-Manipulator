@@ -95,6 +95,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="FdtmForm.cs">
       <SubType>Form</SubType>
@@ -109,6 +115,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StringResources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FdtmForm.resx">
       <DependentUpon>FdtmForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fdtm-logo-32.ico" />
+    <None Include="Resources\fdtm-logo-32.png" />
     <None Include="Resources\silk_clipboard-16.png" />
     <None Include="Resources\fugue_clipboard-empty_16.png" />
     <None Include="Resources\fatcow_clipboard_empty_16.png" />
