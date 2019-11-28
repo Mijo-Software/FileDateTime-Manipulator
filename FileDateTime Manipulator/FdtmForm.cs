@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
-using MijoSoftware.AssemblyInformation;
 
 namespace FileDateTimeManipulator
 {
@@ -129,6 +128,7 @@ namespace FileDateTimeManipulator
 			radioButtonNewLastWriteDateLocalTime.Enabled = true;
 			radioButtonNewLastWriteDateUtc.Enabled = true;
 			buttonApply.Enabled = true;
+			buttonRemoveItem.Enabled = true;
 			if (listViewFoldersAndFiles.Items.Count > 0)
 			{
 				listViewFoldersAndFiles.Select();
@@ -163,6 +163,7 @@ namespace FileDateTimeManipulator
 			radioButtonNewLastWriteDateLocalTime.Enabled = false;
 			radioButtonNewLastWriteDateUtc.Enabled = false;
 			buttonApply.Enabled = false;
+			buttonRemoveItem.Enabled = false;
 			textBoxPath.Text = string.Empty;
 			textBoxCreationDate.Text = string.Empty;
 			textBoxLastAccessDate.Text = string.Empty;
@@ -193,6 +194,7 @@ namespace FileDateTimeManipulator
 			dateTimePickerCreated.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
 			dateTimePickerAccessed.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
 			dateTimePickerWrited.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
+			buttonRemoveItem.Enabled = false;
 		}
 
 		#endregion
@@ -446,6 +448,7 @@ namespace FileDateTimeManipulator
 		{
 			if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
 			{
+				textBoxPath.Text = folderBrowserDialog.SelectedPath;
 				AddDiskObject(path: folderBrowserDialog.SelectedPath);
 				listViewFoldersAndFiles.Items[index: 0].Selected = true;
 				EnableAllControls();
@@ -564,14 +567,10 @@ namespace FileDateTimeManipulator
 		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void ButtonInfo_Click(object sender, EventArgs e)
 		{
-			string message = AssemblyInfo.AssemblyTitle
-				+ " "
-				+ AssemblyInfo.AssemblyVersion
-				+ "\r\r\r"
-				+ AssemblyInfo.AssemblyDescription
-				+ "\r\r"
-				+ AssemblyInfo.AssemblyCopyright;
-			MessageBox.Show(text: message, caption: StringResources.information, buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+			using (AboutForm about = new AboutForm())
+			{
+				about.ShowDialog();
+			}
 		}
 
 		/// <summary>
