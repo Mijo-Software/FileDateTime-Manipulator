@@ -1,7 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FileDateTimeManipulator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="systemIconSet" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fatcow</Value>
+    </Setting>
+    <Setting Name="userIconSet" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fatcow</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

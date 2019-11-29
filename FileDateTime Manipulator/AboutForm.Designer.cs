@@ -36,17 +36,17 @@
 			this.labelTitle = new System.Windows.Forms.Label();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-			this.labelVersion = new System.Windows.Forms.Label();
-			this.labelCopyright = new System.Windows.Forms.Label();
+			this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
 			this.labelDescription = new System.Windows.Forms.Label();
+			this.labelCopyright = new System.Windows.Forms.Label();
+			this.labelVersion = new System.Windows.Forms.Label();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panelButtons.SuspendLayout();
 			this.statusStrip.SuspendLayout();
-			this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
-			this.toolStripContainer1.ContentPanel.SuspendLayout();
-			this.toolStripContainer1.SuspendLayout();
+			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
+			this.toolStripContainer.ContentPanel.SuspendLayout();
+			this.toolStripContainer.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pictureBox1
@@ -58,6 +58,8 @@
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
+			this.pictureBox1.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.pictureBox1.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// panelButtons
 			// 
@@ -90,6 +92,10 @@
 			this.buttonOkay.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.buttonOkay.UseCompatibleTextRendering = true;
 			this.buttonOkay.UseVisualStyleBackColor = true;
+			this.buttonOkay.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonOkay.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.buttonOkay.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.buttonOkay.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// labelTitle
 			// 
@@ -102,6 +108,10 @@
 			this.labelTitle.TabIndex = 7;
 			this.labelTitle.Text = "Title";
 			this.labelTitle.UseCompatibleTextRendering = true;
+			this.labelTitle.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelTitle.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelTitle.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelTitle.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// statusStrip
 			// 
@@ -128,52 +138,32 @@
 			this.toolStripStatusLabel.Name = "toolStripStatusLabel";
 			this.toolStripStatusLabel.Size = new System.Drawing.Size(92, 17);
 			this.toolStripStatusLabel.Text = "Information text";
+			this.toolStripStatusLabel.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.toolStripStatusLabel.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
-			// toolStripContainer1
+			// toolStripContainer
 			// 
 			// 
-			// toolStripContainer1.BottomToolStripPanel
+			// toolStripContainer.BottomToolStripPanel
 			// 
-			this.toolStripContainer1.BottomToolStripPanel.Controls.Add(this.statusStrip);
+			this.toolStripContainer.BottomToolStripPanel.Controls.Add(this.statusStrip);
 			// 
-			// toolStripContainer1.ContentPanel
+			// toolStripContainer.ContentPanel
 			// 
-			this.toolStripContainer1.ContentPanel.AutoScroll = true;
-			this.toolStripContainer1.ContentPanel.Controls.Add(this.labelDescription);
-			this.toolStripContainer1.ContentPanel.Controls.Add(this.labelCopyright);
-			this.toolStripContainer1.ContentPanel.Controls.Add(this.labelVersion);
-			this.toolStripContainer1.ContentPanel.Controls.Add(this.labelTitle);
-			this.toolStripContainer1.ContentPanel.Controls.Add(this.panelButtons);
-			this.toolStripContainer1.ContentPanel.Controls.Add(this.pictureBox1);
-			this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(487, 175);
-			this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-			this.toolStripContainer1.Name = "toolStripContainer1";
-			this.toolStripContainer1.Size = new System.Drawing.Size(487, 197);
-			this.toolStripContainer1.TabIndex = 8;
-			this.toolStripContainer1.Text = "toolStripContainer1";
-			// 
-			// labelVersion
-			// 
-			this.labelVersion.AutoSize = true;
-			this.labelVersion.BackColor = System.Drawing.Color.Transparent;
-			this.labelVersion.Location = new System.Drawing.Point(58, 48);
-			this.labelVersion.Name = "labelVersion";
-			this.labelVersion.Size = new System.Drawing.Size(43, 17);
-			this.labelVersion.TabIndex = 8;
-			this.labelVersion.Text = "Version";
-			this.labelVersion.UseCompatibleTextRendering = true;
-			// 
-			// labelCopyright
-			// 
-			this.labelCopyright.AutoSize = true;
-			this.labelCopyright.BackColor = System.Drawing.Color.Transparent;
-			this.labelCopyright.Location = new System.Drawing.Point(58, 65);
-			this.labelCopyright.Name = "labelCopyright";
-			this.labelCopyright.Size = new System.Drawing.Size(53, 17);
-			this.labelCopyright.TabIndex = 9;
-			this.labelCopyright.Text = "Copyright";
-			this.labelCopyright.UseCompatibleTextRendering = true;
+			this.toolStripContainer.ContentPanel.AutoScroll = true;
+			this.toolStripContainer.ContentPanel.Controls.Add(this.labelDescription);
+			this.toolStripContainer.ContentPanel.Controls.Add(this.labelCopyright);
+			this.toolStripContainer.ContentPanel.Controls.Add(this.labelVersion);
+			this.toolStripContainer.ContentPanel.Controls.Add(this.labelTitle);
+			this.toolStripContainer.ContentPanel.Controls.Add(this.panelButtons);
+			this.toolStripContainer.ContentPanel.Controls.Add(this.pictureBox1);
+			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(487, 175);
+			this.toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.toolStripContainer.Location = new System.Drawing.Point(0, 0);
+			this.toolStripContainer.Name = "toolStripContainer";
+			this.toolStripContainer.Size = new System.Drawing.Size(487, 197);
+			this.toolStripContainer.TabIndex = 8;
+			this.toolStripContainer.Text = "toolStripContainer";
 			// 
 			// labelDescription
 			// 
@@ -186,6 +176,40 @@
 			this.labelDescription.TabIndex = 10;
 			this.labelDescription.Text = "label1";
 			this.labelDescription.UseCompatibleTextRendering = true;
+			this.labelDescription.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDescription.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelDescription.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelDescription.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelCopyright
+			// 
+			this.labelCopyright.AutoSize = true;
+			this.labelCopyright.BackColor = System.Drawing.Color.Transparent;
+			this.labelCopyright.Location = new System.Drawing.Point(58, 65);
+			this.labelCopyright.Name = "labelCopyright";
+			this.labelCopyright.Size = new System.Drawing.Size(53, 17);
+			this.labelCopyright.TabIndex = 9;
+			this.labelCopyright.Text = "Copyright";
+			this.labelCopyright.UseCompatibleTextRendering = true;
+			this.labelCopyright.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelCopyright.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelCopyright.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelCopyright.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
+			// 
+			// labelVersion
+			// 
+			this.labelVersion.AutoSize = true;
+			this.labelVersion.BackColor = System.Drawing.Color.Transparent;
+			this.labelVersion.Location = new System.Drawing.Point(58, 48);
+			this.labelVersion.Name = "labelVersion";
+			this.labelVersion.Size = new System.Drawing.Size(43, 17);
+			this.labelVersion.TabIndex = 8;
+			this.labelVersion.Text = "Version";
+			this.labelVersion.UseCompatibleTextRendering = true;
+			this.labelVersion.Enter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelVersion.Leave += new System.EventHandler(this.ClearStatusbar_Leave);
+			this.labelVersion.MouseEnter += new System.EventHandler(this.SetStatusbar_Enter);
+			this.labelVersion.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
 			// 
 			// AboutForm
 			// 
@@ -193,7 +217,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(487, 197);
-			this.Controls.Add(this.toolStripContainer1);
+			this.Controls.Add(this.toolStripContainer);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
@@ -207,12 +231,12 @@
 			this.panelButtons.ResumeLayout(false);
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
-			this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
-			this.toolStripContainer1.BottomToolStripPanel.PerformLayout();
-			this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-			this.toolStripContainer1.ContentPanel.PerformLayout();
-			this.toolStripContainer1.ResumeLayout(false);
-			this.toolStripContainer1.PerformLayout();
+			this.toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
+			this.toolStripContainer.BottomToolStripPanel.PerformLayout();
+			this.toolStripContainer.ContentPanel.ResumeLayout(false);
+			this.toolStripContainer.ContentPanel.PerformLayout();
+			this.toolStripContainer.ResumeLayout(false);
+			this.toolStripContainer.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -225,7 +249,7 @@
 		private System.Windows.Forms.Label labelTitle;
 		private System.Windows.Forms.StatusStrip statusStrip;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
-		private System.Windows.Forms.ToolStripContainer toolStripContainer1;
+		private System.Windows.Forms.ToolStripContainer toolStripContainer;
 		private System.Windows.Forms.Label labelCopyright;
 		private System.Windows.Forms.Label labelVersion;
 		private System.Windows.Forms.Label labelDescription;
