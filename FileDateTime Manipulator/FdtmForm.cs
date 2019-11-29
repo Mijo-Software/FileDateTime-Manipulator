@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileDateTimeManipulator.Properties;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
@@ -10,6 +11,8 @@ namespace FileDateTimeManipulator
 	/// </summary>
 	public partial class FdtmForm : Form
 	{
+		private readonly Settings settings = new Settings();
+
 		/// <summary>
 		/// culture info for the date
 		/// </summary>
@@ -194,6 +197,12 @@ namespace FileDateTimeManipulator
 			dateTimePickerCreated.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
 			dateTimePickerAccessed.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
 			dateTimePickerWrited.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
+			switch (settings.userIconSet)
+			{
+				default: case "fatcow": ToolStripMenuItemFatcowIcons_MouseEnter(sender: sender, e: EventArgs.Empty); break;
+				case "fugue": ToolStripMenuItemFugueIcons_MouseEnter(sender: sender, e: EventArgs.Empty); break;
+				case "silk": ToolStripMenuItemSilkIcons_MouseEnter(sender: sender, e: EventArgs.Empty); break;
+			}
 			buttonRemoveItem.Enabled = false;
 		}
 
@@ -665,17 +674,19 @@ namespace FileDateTimeManipulator
 		private void ToolStripMenuItemFatcowIcons_MouseEnter(object sender, EventArgs e)
 		{
 			toolStripStatusLabel.Text = toolStripMenuItemFatcowIcons.AccessibleDescription;
-			buttonSelectFolders.Image = Properties.Resources.fatcow_folder_16;
-			buttonRemoveItem.Image = Properties.Resources.fatcow_delete_16;
-			buttonSelectFile.Image = Properties.Resources.fatcow_page_white_16;
-			buttonClose.Image = Properties.Resources.fatcow_door_in_16;
-			buttonInfo.Image = Properties.Resources.fatcow_information_16;
-			buttonApply.Image = Properties.Resources.fatcow_tick_button_16;
-			toolStripMenuItemCopyToClipboard.Image = Properties.Resources.fatcow_clipboard_empty_16;
+			buttonSelectFolders.Image = Resources.fatcow_folder_16;
+			buttonRemoveItem.Image = Resources.fatcow_delete_16;
+			buttonSelectFile.Image = Resources.fatcow_page_white_16;
+			buttonClose.Image = Resources.fatcow_door_in_16;
+			buttonInfo.Image = Resources.fatcow_information_16;
+			buttonApply.Image = Resources.fatcow_tick_button_16;
+			toolStripMenuItemCopyToClipboard.Image = Resources.fatcow_clipboard_empty_16;
 			listViewFoldersAndFiles.StateImageList = imageListFatcow;
 			toolStripMenuItemFatcowIcons.Checked = true;
 			toolStripMenuItemFugueIcons.Checked = false;
 			toolStripMenuItemSilkIcons.Checked = false;
+			settings.userIconSet = "fatcow";
+			settings.Save();
 		}
 
 		/// <summary>
@@ -687,17 +698,19 @@ namespace FileDateTimeManipulator
 		private void ToolStripMenuItemFugueIcons_MouseEnter(object sender, EventArgs e)
 		{
 			toolStripStatusLabel.Text = toolStripMenuItemFugueIcons.AccessibleDescription;
-			buttonSelectFolders.Image = Properties.Resources.fugue_folder_horizontal_open_16;
-			buttonRemoveItem.Image = Properties.Resources.fugue_minus_circle_16;
-			buttonSelectFile.Image = Properties.Resources.fugue_document_16;
-			buttonClose.Image = Properties.Resources.fugue_door_open_in_16;
-			buttonInfo.Image = Properties.Resources.fugue_information_16;
-			buttonApply.Image = Properties.Resources.fugue_tick_button_16;
-			toolStripMenuItemCopyToClipboard.Image = Properties.Resources.fugue_clipboard_empty_16;
+			buttonSelectFolders.Image = Resources.fugue_folder_horizontal_open_16;
+			buttonRemoveItem.Image = Resources.fugue_minus_circle_16;
+			buttonSelectFile.Image = Resources.fugue_document_16;
+			buttonClose.Image = Resources.fugue_door_open_in_16;
+			buttonInfo.Image = Resources.fugue_information_16;
+			buttonApply.Image = Resources.fugue_tick_button_16;
+			toolStripMenuItemCopyToClipboard.Image = Resources.fugue_clipboard_empty_16;
 			listViewFoldersAndFiles.StateImageList = imageListFugue;
 			toolStripMenuItemFatcowIcons.Checked = false;
 			toolStripMenuItemFugueIcons.Checked = true;
 			toolStripMenuItemSilkIcons.Checked = false;
+			settings.userIconSet = "fugue";
+			settings.Save();
 		}
 
 		/// <summary>
@@ -709,17 +722,19 @@ namespace FileDateTimeManipulator
 		private void ToolStripMenuItemSilkIcons_MouseEnter(object sender, EventArgs e)
 		{
 			toolStripStatusLabel.Text = toolStripMenuItemSilkIcons.AccessibleDescription;
-			buttonSelectFolders.Image = Properties.Resources.silk_folder_16;
-			buttonRemoveItem.Image = Properties.Resources.silk_delete_16;
-			buttonSelectFile.Image = Properties.Resources.silk_page_white_16;
-			buttonClose.Image = Properties.Resources.silk_door_in_16;
-			buttonInfo.Image = Properties.Resources.silk_information_16;
-			buttonApply.Image = Properties.Resources.silk_accept_16;
-			toolStripMenuItemCopyToClipboard.Image = Properties.Resources.silk_clipboard_16;
+			buttonSelectFolders.Image = Resources.silk_folder_16;
+			buttonRemoveItem.Image = Resources.silk_delete_16;
+			buttonSelectFile.Image = Resources.silk_page_white_16;
+			buttonClose.Image = Resources.silk_door_in_16;
+			buttonInfo.Image = Resources.silk_information_16;
+			buttonApply.Image = Resources.silk_accept_16;
+			toolStripMenuItemCopyToClipboard.Image = Resources.silk_clipboard_16;
 			listViewFoldersAndFiles.StateImageList = imageListSilk;
 			toolStripMenuItemFatcowIcons.Checked = false;
 			toolStripMenuItemFugueIcons.Checked = false;
 			toolStripMenuItemSilkIcons.Checked = true;
+			settings.userIconSet = "silk";
+			settings.Save();
 		}
 
 		#endregion
@@ -738,6 +753,13 @@ namespace FileDateTimeManipulator
 
 		private void ListViewFoldersAndFiles_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			if (listViewFoldersAndFiles.SelectedItems.Count == 1)
+			{
+				textBoxPath.Text = listViewFoldersAndFiles.SelectedItems[index: 0].GetSubItemAt(x: 1, y: 1).ToString();
+			}
+			else
+			{
+			}
 		}
 	}
 }

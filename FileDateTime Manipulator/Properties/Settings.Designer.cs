@@ -22,5 +22,26 @@ namespace FileDateTimeManipulator.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("fatcow")]
+        public string systemIconSet {
+            get {
+                return ((string)(this["systemIconSet"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("fatcow")]
+        public string userIconSet {
+            get {
+                return ((string)(this["userIconSet"]));
+            }
+            set {
+                this["userIconSet"] = value;
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("FileDateTime Manipulator (FDTM)")]
-[assembly: AssemblyDescription("FDTM changes the creation date, the last access date and the last write date of files.")]
+[assembly: AssemblyDescription("FDTM changes the creation date, the last access date and the last write date of files and folders.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mijo Software")]
 [assembly: AssemblyProduct("FileDateTime Manipulator")]

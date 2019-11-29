@@ -156,6 +156,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fdtm-logo-32.ico" />
+    <None Include="Resources\x-collection_information2-16.png" />
+    <None Include="Resources\x-collection_folder_16.png" />
+    <None Include="Resources\x-collection_door_16.png" />
+    <None Include="Resources\x-collection_document_plain-16.png" />
+    <None Include="Resources\x-collection_delete_16.png" />
+    <None Include="Resources\x-collection_clipboard_16.png" />
+    <None Include="Resources\x-collection_check_16.png" />
+    <None Include="Resources\v-collection_information_16.png" />
+    <None Include="Resources\v-collection_folder_16.png" />
+    <None Include="Resources\v-collection_door_open_16.png" />
+    <None Include="Resources\v-collection_document_plain_16.png" />
+    <None Include="Resources\v-collection_delete2_16.png" />
+    <None Include="Resources\v-collection_clipboard_16.png" />
+    <None Include="Resources\v-collection_check_16.png" />
     <None Include="Resources\fdtm-logo-32.png" />
     <None Include="Resources\silk_clipboard-16.png" />
     <None Include="Resources\fugue_clipboard-empty_16.png" />

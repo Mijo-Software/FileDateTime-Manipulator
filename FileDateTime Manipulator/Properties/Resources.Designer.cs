@@ -83,16 +83,6 @@ namespace FileDateTimeManipulator.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fatcow_delete_161 {
-            get {
-                object obj = ResourceManager.GetObject("fatcow_delete_161", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap fatcow_door_in_16 {
             get {
                 object obj = ResourceManager.GetObject("fatcow_door_in_16", resourceCulture);
@@ -143,16 +133,6 @@ namespace FileDateTimeManipulator.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fatcow_information_161 {
-            get {
-                object obj = ResourceManager.GetObject("fatcow_information_161", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap fatcow_page_white_16 {
             get {
                 object obj = ResourceManager.GetObject("fatcow_page_white_16", resourceCulture);
@@ -186,6 +166,16 @@ namespace FileDateTimeManipulator.Properties {
         internal static System.Drawing.Bitmap fatcow_tick_button_161 {
             get {
                 object obj = ResourceManager.GetObject("fatcow_tick_button_161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fdtm_logo_32 {
+            get {
+                object obj = ResourceManager.GetObject("fdtm-logo-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
