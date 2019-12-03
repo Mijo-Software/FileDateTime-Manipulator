@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 
 namespace MijoSoftware.AssemblyInformation
 {
@@ -42,7 +42,7 @@ namespace MijoSoftware.AssemblyInformation
 			get
 			{
 				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyDescriptionAttribute), inherit: false);
-				return attributes.Length == 0 ? "" : ((AssemblyDescriptionAttribute)attributes[0]).Description;
+				return attributes.Length == 0 ? string.Empty : ((AssemblyDescriptionAttribute)attributes[0]).Description;
 			}
 		}
 
@@ -54,7 +54,7 @@ namespace MijoSoftware.AssemblyInformation
 			get
 			{
 				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyProductAttribute), inherit: false);
-				return attributes.Length == 0 ? "" : ((AssemblyProductAttribute)attributes[0]).Product;
+				return attributes.Length == 0 ? string.Empty : ((AssemblyProductAttribute)attributes[0]).Product;
 			}
 		}
 
@@ -66,7 +66,7 @@ namespace MijoSoftware.AssemblyInformation
 			get
 			{
 				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyCopyrightAttribute), inherit: false);
-				return attributes.Length == 0 ? "" : ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
+				return attributes.Length == 0 ? string.Empty : ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
 			}
 		}
 
@@ -78,7 +78,7 @@ namespace MijoSoftware.AssemblyInformation
 			get
 			{
 				object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(attributeType: typeof(AssemblyCompanyAttribute), inherit: false);
-				return attributes.Length == 0 ? "" : ((AssemblyCompanyAttribute)attributes[0]).Company;
+				return attributes.Length == 0 ? string.Empty : ((AssemblyCompanyAttribute)attributes[0]).Company;
 			}
 		}
 
