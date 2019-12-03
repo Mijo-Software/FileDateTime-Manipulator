@@ -11,6 +11,9 @@ namespace FileDateTimeManipulator
 	/// </summary>
 	public partial class FdtmForm : Form
 	{
+		/// <summary>
+		/// Settings
+		/// </summary>
 		private readonly Settings settings = new Settings();
 
 		/// <summary>
@@ -38,7 +41,7 @@ namespace FileDateTimeManipulator
 		/// </summary>
 		/// <param name="path">Path of the disk object</param>
 		/// <returns></returns>
-		private static bool IsFolder(string path) => File.GetAttributes(path: path).HasFlag(flag: FileAttributes.Directory);
+		private static bool IsFolder(string path) => (File.GetAttributes(path: path) & FileAttributes.Directory) != 0;
 
 		//private static bool IsFile(string path) => !IsFolder(path: path);
 
@@ -65,7 +68,7 @@ namespace FileDateTimeManipulator
 		{
 			string fileOrFolder;
 			byte stateImageIndex;
-			if (File.GetAttributes(path: path).HasFlag(flag: FileAttributes.Directory))
+			if ((File.GetAttributes(path: path) & FileAttributes.Directory) != 0)
 			{
 				stateImageIndex = 0;
 				fileOrFolder = StringResources.folder;
@@ -199,9 +202,9 @@ namespace FileDateTimeManipulator
 			dateTimePickerWrited.CustomFormat = Application.CurrentCulture.DateTimeFormat.RFC1123Pattern;
 			switch (settings.userIconSet)
 			{
-				default: case "fatcow": ToolStripMenuItemFatcowIcons_MouseEnter(sender: sender, e: EventArgs.Empty); break;
-				case "fugue": ToolStripMenuItemFugueIcons_MouseEnter(sender: sender, e: EventArgs.Empty); break;
-				case "silk": ToolStripMenuItemSilkIcons_MouseEnter(sender: sender, e: EventArgs.Empty); break;
+				default: ToolStripMenuItemFatcowIcons_MouseEnter(sender: null, e: EventArgs.Empty); break;
+				case "fugue": ToolStripMenuItemFugueIcons_MouseEnter(sender: null, e: EventArgs.Empty); break;
+				case "silk": ToolStripMenuItemSilkIcons_MouseEnter(sender: null, e: EventArgs.Empty); break;
 			}
 			buttonRemoveItem.Enabled = false;
 		}
@@ -219,15 +222,11 @@ namespace FileDateTimeManipulator
 		private void RadioButtonCreationDateLocalTime_CheckedChanged(object sender, EventArgs e)
 		{
 			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
-			switch (attr & FileAttributes.Directory)
+			textBoxCreationDate.Text = (attr & FileAttributes.Directory) switch
 			{
-				case FileAttributes.Directory:
-					textBoxCreationDate.Text = Directory.GetCreationTime(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-				default:
-					textBoxCreationDate.Text = File.GetCreationTime(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-			}
+				FileAttributes.Directory => Directory.GetCreationTime(path: textBoxPath.Text).ToString(provider: culture),
+				_ => File.GetCreationTime(path: textBoxPath.Text).ToString(provider: culture),
+			};
 		}
 
 		/// <summary>
@@ -239,15 +238,11 @@ namespace FileDateTimeManipulator
 		private void RadioButtonCreationDateUtc_CheckedChanged(object sender, EventArgs e)
 		{
 			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
-			switch (attr & FileAttributes.Directory)
+			textBoxCreationDate.Text = (attr & FileAttributes.Directory) switch
 			{
-				case FileAttributes.Directory:
-					textBoxCreationDate.Text = Directory.GetCreationTimeUtc(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-				default:
-					textBoxCreationDate.Text = File.GetCreationTimeUtc(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-			}
+				FileAttributes.Directory => Directory.GetCreationTimeUtc(path: textBoxPath.Text).ToString(provider: culture),
+				_ => File.GetCreationTimeUtc(path: textBoxPath.Text).ToString(provider: culture),
+			};
 		}
 
 		/// <summary>
@@ -259,15 +254,11 @@ namespace FileDateTimeManipulator
 		private void RadioButtonLastAccessDateLocalTime_CheckedChanged(object sender, EventArgs e)
 		{
 			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
-			switch (attr & FileAttributes.Directory)
+			textBoxLastAccessDate.Text = (attr & FileAttributes.Directory) switch
 			{
-				case FileAttributes.Directory:
-					textBoxLastAccessDate.Text = Directory.GetLastAccessTime(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-				default:
-					textBoxLastAccessDate.Text = File.GetLastAccessTime(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-			}
+				FileAttributes.Directory => Directory.GetLastAccessTime(path: textBoxPath.Text).ToString(provider: culture),
+				_ => File.GetLastAccessTime(path: textBoxPath.Text).ToString(provider: culture),
+			};
 		}
 
 		/// <summary>
@@ -279,15 +270,11 @@ namespace FileDateTimeManipulator
 		private void RadioButtonLastAccessDateUtc_CheckedChanged(object sender, EventArgs e)
 		{
 			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
-			switch (attr & FileAttributes.Directory)
+			textBoxLastAccessDate.Text = (attr & FileAttributes.Directory) switch
 			{
-				case FileAttributes.Directory:
-					textBoxLastAccessDate.Text = Directory.GetLastAccessTimeUtc(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-				default:
-					textBoxLastAccessDate.Text = File.GetLastAccessTimeUtc(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-			}
+				FileAttributes.Directory => Directory.GetLastAccessTimeUtc(path: textBoxPath.Text).ToString(provider: culture),
+				_ => File.GetLastAccessTimeUtc(path: textBoxPath.Text).ToString(provider: culture),
+			};
 		}
 
 		/// <summary>
@@ -299,15 +286,11 @@ namespace FileDateTimeManipulator
 		private void RadioButtonLastWriteDateLocalTime_CheckedChanged(object sender, EventArgs e)
 		{
 			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
-			switch (attr & FileAttributes.Directory)
+			textBoxLastWriteDate.Text = (attr & FileAttributes.Directory) switch
 			{
-				case FileAttributes.Directory:
-					textBoxLastWriteDate.Text = Directory.GetLastWriteTime(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-				default:
-					textBoxLastWriteDate.Text = File.GetLastWriteTime(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-			}
+				FileAttributes.Directory => Directory.GetLastWriteTime(path: textBoxPath.Text).ToString(provider: culture),
+				_ => File.GetLastWriteTime(path: textBoxPath.Text).ToString(provider: culture),
+			};
 		}
 
 		/// <summary>
@@ -319,15 +302,11 @@ namespace FileDateTimeManipulator
 		private void RadioButtonLastWriteDateUtc_CheckedChanged(object sender, EventArgs e)
 		{
 			FileAttributes attr = File.GetAttributes(path: textBoxPath.Text);
-			switch (attr & FileAttributes.Directory)
+			textBoxLastWriteDate.Text = (attr & FileAttributes.Directory) switch
 			{
-				case FileAttributes.Directory:
-					textBoxLastWriteDate.Text = Directory.GetLastWriteTimeUtc(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-				default:
-					textBoxLastWriteDate.Text = File.GetLastWriteTimeUtc(path: textBoxPath.Text).ToString(provider: culture);
-					break;
-			}
+				FileAttributes.Directory => Directory.GetLastWriteTimeUtc(path: textBoxPath.Text).ToString(provider: culture),
+				_ => File.GetLastWriteTimeUtc(path: textBoxPath.Text).ToString(provider: culture),
+			};
 		}
 
 		/// <summary>
@@ -576,10 +555,8 @@ namespace FileDateTimeManipulator
 		/// <remarks>The parameters <paramref name="e"/> and <paramref name="sender"/> are not needed, but must be indicated.</remarks>
 		private void ButtonInfo_Click(object sender, EventArgs e)
 		{
-			using (AboutForm about = new AboutForm())
-			{
-				about.ShowDialog();
-			}
+			using AboutForm about = new AboutForm();
+			about.ShowDialog();
 		}
 
 		/// <summary>

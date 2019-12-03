@@ -26,7 +26,7 @@ namespace FileDateTimeManipulator
 			Text = $"{Text} {labelTitle.Text} {AssemblyInfo.AssemblyVersion}";
 			switch (settings.userIconSet)
 			{
-				default: case "fatcow": LoadFatcowIcons(); break;
+				default: LoadFatcowIcons(); break;
 				case "fugue": LoadFugueIcons(); break;
 				case "silk": LoadSilkIcons(); break;
 			}

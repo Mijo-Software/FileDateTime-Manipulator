@@ -16,10 +16,8 @@ namespace FileDateTimeManipulator
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(defaultValue: false);
-			using (FdtmForm mainWindow = new FdtmForm())
-			{
-				Application.Run(mainForm: mainWindow);
-			}				
+			using FdtmForm mainWindow = new FdtmForm();
+			Application.Run(mainForm: mainWindow);
 		}
 	}
 }

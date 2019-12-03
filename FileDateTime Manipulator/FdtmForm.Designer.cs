@@ -582,7 +582,7 @@
 			this.contextMenuStripIcons.Name = "contextMenuStripIcons";
 			this.contextMenuStripIcons.ShowCheckMargin = true;
 			this.contextMenuStripIcons.ShowImageMargin = false;
-			this.contextMenuStripIcons.Size = new System.Drawing.Size(144, 70);
+			this.contextMenuStripIcons.Size = new System.Drawing.Size(181, 92);
 			this.contextMenuStripIcons.TabStop = true;
 			this.contextMenuStripIcons.Text = "Icon themes";
 			this.toolTip.SetToolTip(this.contextMenuStripIcons, "Change the icon theme");
@@ -596,7 +596,7 @@
 			this.toolStripMenuItemFatcowIcons.Checked = true;
 			this.toolStripMenuItemFatcowIcons.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.toolStripMenuItemFatcowIcons.Name = "toolStripMenuItemFatcowIcons";
-			this.toolStripMenuItemFatcowIcons.Size = new System.Drawing.Size(143, 22);
+			this.toolStripMenuItemFatcowIcons.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemFatcowIcons.Text = "Fatcow icons";
 			this.toolStripMenuItemFatcowIcons.MouseEnter += new System.EventHandler(this.ToolStripMenuItemFatcowIcons_MouseEnter);
 			this.toolStripMenuItemFatcowIcons.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
@@ -608,7 +608,7 @@
 			this.toolStripMenuItemFugueIcons.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
 			this.toolStripMenuItemFugueIcons.AutoToolTip = true;
 			this.toolStripMenuItemFugueIcons.Name = "toolStripMenuItemFugueIcons";
-			this.toolStripMenuItemFugueIcons.Size = new System.Drawing.Size(143, 22);
+			this.toolStripMenuItemFugueIcons.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemFugueIcons.Text = "Fugue icons";
 			this.toolStripMenuItemFugueIcons.MouseEnter += new System.EventHandler(this.ToolStripMenuItemFugueIcons_MouseEnter);
 			this.toolStripMenuItemFugueIcons.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
@@ -620,7 +620,7 @@
 			this.toolStripMenuItemSilkIcons.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuItem;
 			this.toolStripMenuItemSilkIcons.AutoToolTip = true;
 			this.toolStripMenuItemSilkIcons.Name = "toolStripMenuItemSilkIcons";
-			this.toolStripMenuItemSilkIcons.Size = new System.Drawing.Size(143, 22);
+			this.toolStripMenuItemSilkIcons.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItemSilkIcons.Text = "Silk icons";
 			this.toolStripMenuItemSilkIcons.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSilkIcons_MouseEnter);
 			this.toolStripMenuItemSilkIcons.MouseLeave += new System.EventHandler(this.ClearStatusbar_Leave);
