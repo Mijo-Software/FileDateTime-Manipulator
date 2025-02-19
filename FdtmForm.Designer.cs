@@ -103,7 +103,6 @@
 			radioButtonNewCreationDateUtc.AccessibleDescription = "Convert the creation date preview to the universal time";
 			radioButtonNewCreationDateUtc.AccessibleName = "Convert the creation date preview to the universal time";
 			radioButtonNewCreationDateUtc.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonNewCreationDateUtc.AutoEllipsis = true;
 			radioButtonNewCreationDateUtc.AutoSize = true;
 			radioButtonNewCreationDateUtc.Dock = DockStyle.Fill;
 			radioButtonNewCreationDateUtc.Enabled = false;
@@ -116,17 +115,16 @@
 			toolTip.SetToolTip(radioButtonNewCreationDateUtc, "Convert the creation date preview to the universal time");
 			radioButtonNewCreationDateUtc.UseVisualStyleBackColor = true;
 			radioButtonNewCreationDateUtc.CheckedChanged += RadioButtonNewCreationDateUtc_CheckedChanged;
-			radioButtonNewCreationDateUtc.Enter += SetStatusLabel_Enter;
-			radioButtonNewCreationDateUtc.Leave += ClearStatusLabel_Leave;
-			radioButtonNewCreationDateUtc.MouseEnter += SetStatusLabel_Enter;
-			radioButtonNewCreationDateUtc.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonNewCreationDateUtc.Enter += SetStatusbar_Enter;
+			radioButtonNewCreationDateUtc.Leave += ClearStatusBar_Leave;
+			radioButtonNewCreationDateUtc.MouseEnter += SetStatusbar_Enter;
+			radioButtonNewCreationDateUtc.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonNewCreationDateLocalTime
 			// 
 			radioButtonNewCreationDateLocalTime.AccessibleDescription = "Convert the creation date preview to the local time";
 			radioButtonNewCreationDateLocalTime.AccessibleName = "Convert the creation date preview to the local time";
 			radioButtonNewCreationDateLocalTime.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonNewCreationDateLocalTime.AutoEllipsis = true;
 			radioButtonNewCreationDateLocalTime.AutoSize = true;
 			radioButtonNewCreationDateLocalTime.Checked = true;
 			radioButtonNewCreationDateLocalTime.Dock = DockStyle.Fill;
@@ -141,17 +139,16 @@
 			toolTip.SetToolTip(radioButtonNewCreationDateLocalTime, "Convert the creation date preview to the local time");
 			radioButtonNewCreationDateLocalTime.UseVisualStyleBackColor = true;
 			radioButtonNewCreationDateLocalTime.CheckedChanged += RadioButtonNewCreationDateLocalTime_CheckedChanged;
-			radioButtonNewCreationDateLocalTime.Enter += SetStatusLabel_Enter;
-			radioButtonNewCreationDateLocalTime.Leave += ClearStatusLabel_Leave;
-			radioButtonNewCreationDateLocalTime.MouseEnter += SetStatusLabel_Enter;
-			radioButtonNewCreationDateLocalTime.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonNewCreationDateLocalTime.Enter += SetStatusbar_Enter;
+			radioButtonNewCreationDateLocalTime.Leave += ClearStatusBar_Leave;
+			radioButtonNewCreationDateLocalTime.MouseEnter += SetStatusbar_Enter;
+			radioButtonNewCreationDateLocalTime.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonNewLastAccessDateUtc
 			// 
 			radioButtonNewLastAccessDateUtc.AccessibleDescription = "Convert the last access date preview to the universal time";
 			radioButtonNewLastAccessDateUtc.AccessibleName = "Convert the last access date preview to the universal time";
 			radioButtonNewLastAccessDateUtc.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonNewLastAccessDateUtc.AutoEllipsis = true;
 			radioButtonNewLastAccessDateUtc.AutoSize = true;
 			radioButtonNewLastAccessDateUtc.Dock = DockStyle.Fill;
 			radioButtonNewLastAccessDateUtc.Enabled = false;
@@ -164,17 +161,16 @@
 			toolTip.SetToolTip(radioButtonNewLastAccessDateUtc, "Convert the last access date preview to the universal time");
 			radioButtonNewLastAccessDateUtc.UseVisualStyleBackColor = true;
 			radioButtonNewLastAccessDateUtc.CheckedChanged += RadioButtonNewLastAccessDateUtc_CheckedChanged;
-			radioButtonNewLastAccessDateUtc.Enter += SetStatusLabel_Enter;
-			radioButtonNewLastAccessDateUtc.Leave += ClearStatusLabel_Leave;
-			radioButtonNewLastAccessDateUtc.MouseEnter += SetStatusLabel_Enter;
-			radioButtonNewLastAccessDateUtc.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonNewLastAccessDateUtc.Enter += SetStatusbar_Enter;
+			radioButtonNewLastAccessDateUtc.Leave += ClearStatusBar_Leave;
+			radioButtonNewLastAccessDateUtc.MouseEnter += SetStatusbar_Enter;
+			radioButtonNewLastAccessDateUtc.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonNewLastAccessDateLocalTime
 			// 
 			radioButtonNewLastAccessDateLocalTime.AccessibleDescription = "Convert the last access date preview to the local time";
 			radioButtonNewLastAccessDateLocalTime.AccessibleName = "Convert the last access date preview to the local time";
 			radioButtonNewLastAccessDateLocalTime.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonNewLastAccessDateLocalTime.AutoEllipsis = true;
 			radioButtonNewLastAccessDateLocalTime.AutoSize = true;
 			radioButtonNewLastAccessDateLocalTime.Checked = true;
 			radioButtonNewLastAccessDateLocalTime.Dock = DockStyle.Fill;
@@ -189,17 +185,16 @@
 			toolTip.SetToolTip(radioButtonNewLastAccessDateLocalTime, "Convert the last access date preview to the local time");
 			radioButtonNewLastAccessDateLocalTime.UseVisualStyleBackColor = true;
 			radioButtonNewLastAccessDateLocalTime.CheckedChanged += RadioButtonNewLastAccessDateLocalTime_CheckedChanged;
-			radioButtonNewLastAccessDateLocalTime.Enter += SetStatusLabel_Enter;
-			radioButtonNewLastAccessDateLocalTime.Leave += ClearStatusLabel_Leave;
-			radioButtonNewLastAccessDateLocalTime.MouseEnter += SetStatusLabel_Enter;
-			radioButtonNewLastAccessDateLocalTime.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonNewLastAccessDateLocalTime.Enter += SetStatusbar_Enter;
+			radioButtonNewLastAccessDateLocalTime.Leave += ClearStatusBar_Leave;
+			radioButtonNewLastAccessDateLocalTime.MouseEnter += SetStatusbar_Enter;
+			radioButtonNewLastAccessDateLocalTime.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonNewLastWriteDateUtc
 			// 
 			radioButtonNewLastWriteDateUtc.AccessibleDescription = "Convert the last write date preview to the universal time";
 			radioButtonNewLastWriteDateUtc.AccessibleName = "Convert the last write date preview to the universal time";
 			radioButtonNewLastWriteDateUtc.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonNewLastWriteDateUtc.AutoEllipsis = true;
 			radioButtonNewLastWriteDateUtc.AutoSize = true;
 			radioButtonNewLastWriteDateUtc.Dock = DockStyle.Fill;
 			radioButtonNewLastWriteDateUtc.Enabled = false;
@@ -212,17 +207,16 @@
 			toolTip.SetToolTip(radioButtonNewLastWriteDateUtc, "Convert the last write date preview to the universal time");
 			radioButtonNewLastWriteDateUtc.UseVisualStyleBackColor = true;
 			radioButtonNewLastWriteDateUtc.CheckedChanged += RadioButtonNewLastWriteDateUtc_CheckedChanged;
-			radioButtonNewLastWriteDateUtc.Enter += SetStatusLabel_Enter;
-			radioButtonNewLastWriteDateUtc.Leave += ClearStatusLabel_Leave;
-			radioButtonNewLastWriteDateUtc.MouseEnter += SetStatusLabel_Enter;
-			radioButtonNewLastWriteDateUtc.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonNewLastWriteDateUtc.Enter += SetStatusbar_Enter;
+			radioButtonNewLastWriteDateUtc.Leave += ClearStatusBar_Leave;
+			radioButtonNewLastWriteDateUtc.MouseEnter += SetStatusbar_Enter;
+			radioButtonNewLastWriteDateUtc.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonNewLastWriteDateLocalTime
 			// 
 			radioButtonNewLastWriteDateLocalTime.AccessibleDescription = "Convert the last write date preview to the local time";
 			radioButtonNewLastWriteDateLocalTime.AccessibleName = "Convert the last write date preview to the local time";
 			radioButtonNewLastWriteDateLocalTime.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonNewLastWriteDateLocalTime.AutoEllipsis = true;
 			radioButtonNewLastWriteDateLocalTime.AutoSize = true;
 			radioButtonNewLastWriteDateLocalTime.Checked = true;
 			radioButtonNewLastWriteDateLocalTime.Dock = DockStyle.Fill;
@@ -237,10 +231,10 @@
 			toolTip.SetToolTip(radioButtonNewLastWriteDateLocalTime, "Convert the last write date preview to the local time");
 			radioButtonNewLastWriteDateLocalTime.UseVisualStyleBackColor = true;
 			radioButtonNewLastWriteDateLocalTime.CheckedChanged += RadioButtonNewLastWriteDateLocalTime_CheckedChanged;
-			radioButtonNewLastWriteDateLocalTime.Enter += SetStatusLabel_Enter;
-			radioButtonNewLastWriteDateLocalTime.Leave += ClearStatusLabel_Leave;
-			radioButtonNewLastWriteDateLocalTime.MouseEnter += SetStatusLabel_Enter;
-			radioButtonNewLastWriteDateLocalTime.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonNewLastWriteDateLocalTime.Enter += SetStatusbar_Enter;
+			radioButtonNewLastWriteDateLocalTime.Leave += ClearStatusBar_Leave;
+			radioButtonNewLastWriteDateLocalTime.MouseEnter += SetStatusbar_Enter;
+			radioButtonNewLastWriteDateLocalTime.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// dateTimePickerWrited
 			// 
@@ -259,10 +253,10 @@
 			dateTimePickerWrited.Size = new Size(197, 20);
 			dateTimePickerWrited.TabIndex = 7;
 			toolTip.SetToolTip(dateTimePickerWrited, "Last write date preview of the file");
-			dateTimePickerWrited.Enter += SetStatusLabel_Enter;
-			dateTimePickerWrited.Leave += ClearStatusLabel_Leave;
-			dateTimePickerWrited.MouseEnter += SetStatusLabel_Enter;
-			dateTimePickerWrited.MouseLeave += ClearStatusLabel_Leave;
+			dateTimePickerWrited.Enter += SetStatusbar_Enter;
+			dateTimePickerWrited.Leave += ClearStatusBar_Leave;
+			dateTimePickerWrited.MouseEnter += SetStatusbar_Enter;
+			dateTimePickerWrited.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// dateTimePickerAccessed
 			// 
@@ -281,10 +275,10 @@
 			dateTimePickerAccessed.Size = new Size(194, 20);
 			dateTimePickerAccessed.TabIndex = 4;
 			toolTip.SetToolTip(dateTimePickerAccessed, "Last access date preview of the file");
-			dateTimePickerAccessed.Enter += SetStatusLabel_Enter;
-			dateTimePickerAccessed.Leave += ClearStatusLabel_Leave;
-			dateTimePickerAccessed.MouseEnter += SetStatusLabel_Enter;
-			dateTimePickerAccessed.MouseLeave += ClearStatusLabel_Leave;
+			dateTimePickerAccessed.Enter += SetStatusbar_Enter;
+			dateTimePickerAccessed.Leave += ClearStatusBar_Leave;
+			dateTimePickerAccessed.MouseEnter += SetStatusbar_Enter;
+			dateTimePickerAccessed.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// dateTimePickerCreated
 			// 
@@ -303,17 +297,16 @@
 			dateTimePickerCreated.Size = new Size(194, 20);
 			dateTimePickerCreated.TabIndex = 1;
 			toolTip.SetToolTip(dateTimePickerCreated, "Creation date preview of the file");
-			dateTimePickerCreated.Enter += SetStatusLabel_Enter;
-			dateTimePickerCreated.Leave += ClearStatusLabel_Leave;
-			dateTimePickerCreated.MouseEnter += SetStatusLabel_Enter;
-			dateTimePickerCreated.MouseLeave += ClearStatusLabel_Leave;
+			dateTimePickerCreated.Enter += SetStatusbar_Enter;
+			dateTimePickerCreated.Leave += ClearStatusBar_Leave;
+			dateTimePickerCreated.MouseEnter += SetStatusbar_Enter;
+			dateTimePickerCreated.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonLastWriteDateUtc
 			// 
 			radioButtonLastWriteDateUtc.AccessibleDescription = "Convert the last write date to the universal time";
 			radioButtonLastWriteDateUtc.AccessibleName = "Convert the last write date to the universal time";
 			radioButtonLastWriteDateUtc.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonLastWriteDateUtc.AutoEllipsis = true;
 			radioButtonLastWriteDateUtc.AutoSize = true;
 			radioButtonLastWriteDateUtc.Dock = DockStyle.Fill;
 			radioButtonLastWriteDateUtc.Enabled = false;
@@ -326,17 +319,16 @@
 			toolTip.SetToolTip(radioButtonLastWriteDateUtc, "Convert the last write date to the universal time");
 			radioButtonLastWriteDateUtc.UseVisualStyleBackColor = true;
 			radioButtonLastWriteDateUtc.CheckedChanged += RadioButtonLastWriteDateUtc_CheckedChanged;
-			radioButtonLastWriteDateUtc.Enter += SetStatusLabel_Enter;
-			radioButtonLastWriteDateUtc.Leave += ClearStatusLabel_Leave;
-			radioButtonLastWriteDateUtc.MouseEnter += SetStatusLabel_Enter;
-			radioButtonLastWriteDateUtc.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonLastWriteDateUtc.Enter += SetStatusbar_Enter;
+			radioButtonLastWriteDateUtc.Leave += ClearStatusBar_Leave;
+			radioButtonLastWriteDateUtc.MouseEnter += SetStatusbar_Enter;
+			radioButtonLastWriteDateUtc.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonLastWriteDateLocalTime
 			// 
 			radioButtonLastWriteDateLocalTime.AccessibleDescription = "Convert the last write date to the local time";
 			radioButtonLastWriteDateLocalTime.AccessibleName = "Convert the last write date to the local time";
 			radioButtonLastWriteDateLocalTime.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonLastWriteDateLocalTime.AutoEllipsis = true;
 			radioButtonLastWriteDateLocalTime.AutoSize = true;
 			radioButtonLastWriteDateLocalTime.Checked = true;
 			radioButtonLastWriteDateLocalTime.Dock = DockStyle.Fill;
@@ -351,17 +343,16 @@
 			toolTip.SetToolTip(radioButtonLastWriteDateLocalTime, "Convert the last write date to the local time");
 			radioButtonLastWriteDateLocalTime.UseVisualStyleBackColor = true;
 			radioButtonLastWriteDateLocalTime.CheckedChanged += RadioButtonLastWriteDateLocalTime_CheckedChanged;
-			radioButtonLastWriteDateLocalTime.Enter += SetStatusLabel_Enter;
-			radioButtonLastWriteDateLocalTime.Leave += ClearStatusLabel_Leave;
-			radioButtonLastWriteDateLocalTime.MouseEnter += SetStatusLabel_Enter;
-			radioButtonLastWriteDateLocalTime.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonLastWriteDateLocalTime.Enter += SetStatusbar_Enter;
+			radioButtonLastWriteDateLocalTime.Leave += ClearStatusBar_Leave;
+			radioButtonLastWriteDateLocalTime.MouseEnter += SetStatusbar_Enter;
+			radioButtonLastWriteDateLocalTime.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonCreationDateUtc
 			// 
 			radioButtonCreationDateUtc.AccessibleDescription = "Convert the creation date to the universal time";
 			radioButtonCreationDateUtc.AccessibleName = "Convert the creation date to the universal time";
 			radioButtonCreationDateUtc.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonCreationDateUtc.AutoEllipsis = true;
 			radioButtonCreationDateUtc.AutoSize = true;
 			radioButtonCreationDateUtc.Dock = DockStyle.Fill;
 			radioButtonCreationDateUtc.Enabled = false;
@@ -374,17 +365,16 @@
 			toolTip.SetToolTip(radioButtonCreationDateUtc, "Convert the creation date to the universal time");
 			radioButtonCreationDateUtc.UseVisualStyleBackColor = true;
 			radioButtonCreationDateUtc.CheckedChanged += RadioButtonCreationDateUtc_CheckedChanged;
-			radioButtonCreationDateUtc.Enter += SetStatusLabel_Enter;
-			radioButtonCreationDateUtc.Leave += ClearStatusLabel_Leave;
-			radioButtonCreationDateUtc.MouseEnter += SetStatusLabel_Enter;
-			radioButtonCreationDateUtc.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonCreationDateUtc.Enter += SetStatusbar_Enter;
+			radioButtonCreationDateUtc.Leave += ClearStatusBar_Leave;
+			radioButtonCreationDateUtc.MouseEnter += SetStatusbar_Enter;
+			radioButtonCreationDateUtc.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonCreationDateLocalTime
 			// 
 			radioButtonCreationDateLocalTime.AccessibleDescription = "Convert the creation date to the local time";
 			radioButtonCreationDateLocalTime.AccessibleName = "Convert the creation date to the local time";
 			radioButtonCreationDateLocalTime.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonCreationDateLocalTime.AutoEllipsis = true;
 			radioButtonCreationDateLocalTime.AutoSize = true;
 			radioButtonCreationDateLocalTime.Checked = true;
 			radioButtonCreationDateLocalTime.Dock = DockStyle.Fill;
@@ -399,10 +389,10 @@
 			toolTip.SetToolTip(radioButtonCreationDateLocalTime, "Convert the creation date to the local time");
 			radioButtonCreationDateLocalTime.UseVisualStyleBackColor = true;
 			radioButtonCreationDateLocalTime.CheckedChanged += RadioButtonCreationDateLocalTime_CheckedChanged;
-			radioButtonCreationDateLocalTime.Enter += SetStatusLabel_Enter;
-			radioButtonCreationDateLocalTime.Leave += ClearStatusLabel_Leave;
-			radioButtonCreationDateLocalTime.MouseEnter += SetStatusLabel_Enter;
-			radioButtonCreationDateLocalTime.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonCreationDateLocalTime.Enter += SetStatusbar_Enter;
+			radioButtonCreationDateLocalTime.Leave += ClearStatusBar_Leave;
+			radioButtonCreationDateLocalTime.MouseEnter += SetStatusbar_Enter;
+			radioButtonCreationDateLocalTime.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// textBoxLastWriteDate
 			// 
@@ -420,10 +410,10 @@
 			textBoxLastWriteDate.TabIndex = 7;
 			textBoxLastWriteDate.TextAlign = HorizontalAlignment.Center;
 			toolTip.SetToolTip(textBoxLastWriteDate, "Last write date of the file");
-			textBoxLastWriteDate.Enter += SetStatusLabel_Enter;
-			textBoxLastWriteDate.Leave += ClearStatusLabel_Leave;
-			textBoxLastWriteDate.MouseEnter += SetStatusLabel_Enter;
-			textBoxLastWriteDate.MouseLeave += ClearStatusLabel_Leave;
+			textBoxLastWriteDate.Enter += SetStatusbar_Enter;
+			textBoxLastWriteDate.Leave += ClearStatusBar_Leave;
+			textBoxLastWriteDate.MouseEnter += SetStatusbar_Enter;
+			textBoxLastWriteDate.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// textBoxLastAccessDate
 			// 
@@ -441,10 +431,10 @@
 			textBoxLastAccessDate.TabIndex = 4;
 			textBoxLastAccessDate.TextAlign = HorizontalAlignment.Center;
 			toolTip.SetToolTip(textBoxLastAccessDate, "Last access date of the file");
-			textBoxLastAccessDate.Enter += SetStatusLabel_Enter;
-			textBoxLastAccessDate.Leave += ClearStatusLabel_Leave;
-			textBoxLastAccessDate.MouseEnter += SetStatusLabel_Enter;
-			textBoxLastAccessDate.MouseLeave += ClearStatusLabel_Leave;
+			textBoxLastAccessDate.Enter += SetStatusbar_Enter;
+			textBoxLastAccessDate.Leave += ClearStatusBar_Leave;
+			textBoxLastAccessDate.MouseEnter += SetStatusbar_Enter;
+			textBoxLastAccessDate.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// textBoxCreationDate
 			// 
@@ -462,17 +452,16 @@
 			textBoxCreationDate.TabIndex = 1;
 			textBoxCreationDate.TextAlign = HorizontalAlignment.Center;
 			toolTip.SetToolTip(textBoxCreationDate, "Creation date of the file");
-			textBoxCreationDate.Enter += SetStatusLabel_Enter;
-			textBoxCreationDate.Leave += ClearStatusLabel_Leave;
-			textBoxCreationDate.MouseEnter += SetStatusLabel_Enter;
-			textBoxCreationDate.MouseLeave += ClearStatusLabel_Leave;
+			textBoxCreationDate.Enter += SetStatusbar_Enter;
+			textBoxCreationDate.Leave += ClearStatusBar_Leave;
+			textBoxCreationDate.MouseEnter += SetStatusbar_Enter;
+			textBoxCreationDate.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonLastAccessDateUtc
 			// 
 			radioButtonLastAccessDateUtc.AccessibleDescription = "Convert the last access date to the universal time";
 			radioButtonLastAccessDateUtc.AccessibleName = "Convert the last access date to the universal time";
 			radioButtonLastAccessDateUtc.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonLastAccessDateUtc.AutoEllipsis = true;
 			radioButtonLastAccessDateUtc.AutoSize = true;
 			radioButtonLastAccessDateUtc.Dock = DockStyle.Fill;
 			radioButtonLastAccessDateUtc.Enabled = false;
@@ -485,17 +474,16 @@
 			toolTip.SetToolTip(radioButtonLastAccessDateUtc, "Convert the last access date to the universal time");
 			radioButtonLastAccessDateUtc.UseVisualStyleBackColor = true;
 			radioButtonLastAccessDateUtc.CheckedChanged += RadioButtonLastAccessDateUtc_CheckedChanged;
-			radioButtonLastAccessDateUtc.Enter += SetStatusLabel_Enter;
-			radioButtonLastAccessDateUtc.Leave += ClearStatusLabel_Leave;
-			radioButtonLastAccessDateUtc.MouseEnter += SetStatusLabel_Enter;
-			radioButtonLastAccessDateUtc.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonLastAccessDateUtc.Enter += SetStatusbar_Enter;
+			radioButtonLastAccessDateUtc.Leave += ClearStatusBar_Leave;
+			radioButtonLastAccessDateUtc.MouseEnter += SetStatusbar_Enter;
+			radioButtonLastAccessDateUtc.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// radioButtonLastAccessDateLocalTime
 			// 
-			radioButtonLastAccessDateLocalTime.AccessibleDescription = "Convert the last access date to the locla time";
+			radioButtonLastAccessDateLocalTime.AccessibleDescription = "Convert the last access date to the local time";
 			radioButtonLastAccessDateLocalTime.AccessibleName = "Convert the last access date to the local time";
 			radioButtonLastAccessDateLocalTime.AccessibleRole = AccessibleRole.RadioButton;
-			radioButtonLastAccessDateLocalTime.AutoEllipsis = true;
 			radioButtonLastAccessDateLocalTime.AutoSize = true;
 			radioButtonLastAccessDateLocalTime.Checked = true;
 			radioButtonLastAccessDateLocalTime.Dock = DockStyle.Fill;
@@ -510,10 +498,10 @@
 			toolTip.SetToolTip(radioButtonLastAccessDateLocalTime, "Convert the last access date to the local time");
 			radioButtonLastAccessDateLocalTime.UseVisualStyleBackColor = true;
 			radioButtonLastAccessDateLocalTime.CheckedChanged += RadioButtonLastAccessDateLocalTime_CheckedChanged;
-			radioButtonLastAccessDateLocalTime.Enter += SetStatusLabel_Enter;
-			radioButtonLastAccessDateLocalTime.Leave += ClearStatusLabel_Leave;
-			radioButtonLastAccessDateLocalTime.MouseEnter += SetStatusLabel_Enter;
-			radioButtonLastAccessDateLocalTime.MouseLeave += ClearStatusLabel_Leave;
+			radioButtonLastAccessDateLocalTime.Enter += SetStatusbar_Enter;
+			radioButtonLastAccessDateLocalTime.Leave += ClearStatusBar_Leave;
+			radioButtonLastAccessDateLocalTime.MouseEnter += SetStatusbar_Enter;
+			radioButtonLastAccessDateLocalTime.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// textBoxPath
 			// 
@@ -530,10 +518,10 @@
 			textBoxPath.Size = new Size(329, 23);
 			textBoxPath.TabIndex = 1;
 			toolTip.SetToolTip(textBoxPath, "Full path name");
-			textBoxPath.Enter += SetStatusLabel_Enter;
-			textBoxPath.Leave += ClearStatusLabel_Leave;
-			textBoxPath.MouseEnter += SetStatusLabel_Enter;
-			textBoxPath.MouseLeave += ClearStatusLabel_Leave;
+			textBoxPath.Enter += SetStatusbar_Enter;
+			textBoxPath.Leave += ClearStatusBar_Leave;
+			textBoxPath.MouseEnter += SetStatusbar_Enter;
+			textBoxPath.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonClose
 			// 
@@ -555,10 +543,10 @@
 			toolTip.SetToolTip(buttonClose, "Close the application");
 			buttonClose.UseVisualStyleBackColor = true;
 			buttonClose.Click += ButtonClose_Click;
-			buttonClose.Enter += SetStatusLabel_Enter;
-			buttonClose.Leave += ClearStatusLabel_Leave;
-			buttonClose.MouseEnter += SetStatusLabel_Enter;
-			buttonClose.MouseLeave += ClearStatusLabel_Leave;
+			buttonClose.Enter += SetStatusbar_Enter;
+			buttonClose.Leave += ClearStatusBar_Leave;
+			buttonClose.MouseEnter += SetStatusbar_Enter;
+			buttonClose.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonInfo
 			// 
@@ -579,10 +567,10 @@
 			toolTip.SetToolTip(buttonInfo, "Show some information");
 			buttonInfo.UseVisualStyleBackColor = true;
 			buttonInfo.Click += ButtonInfo_Click;
-			buttonInfo.Enter += SetStatusLabel_Enter;
-			buttonInfo.Leave += ClearStatusLabel_Leave;
-			buttonInfo.MouseEnter += SetStatusLabel_Enter;
-			buttonInfo.MouseLeave += ClearStatusLabel_Leave;
+			buttonInfo.Enter += SetStatusbar_Enter;
+			buttonInfo.Leave += ClearStatusBar_Leave;
+			buttonInfo.MouseEnter += SetStatusbar_Enter;
+			buttonInfo.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonApply
 			// 
@@ -604,10 +592,10 @@
 			toolTip.SetToolTip(buttonApply, "Apply the changes");
 			buttonApply.UseVisualStyleBackColor = true;
 			buttonApply.Click += ButtonApply_Click;
-			buttonApply.Enter += SetStatusLabel_Enter;
-			buttonApply.Leave += ClearStatusLabel_Leave;
-			buttonApply.MouseEnter += SetStatusLabel_Enter;
-			buttonApply.MouseLeave += ClearStatusLabel_Leave;
+			buttonApply.Enter += SetStatusbar_Enter;
+			buttonApply.Leave += ClearStatusBar_Leave;
+			buttonApply.MouseEnter += SetStatusbar_Enter;
+			buttonApply.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonSelectFile
 			// 
@@ -628,10 +616,10 @@
 			toolTip.SetToolTip(buttonSelectFile, "Click to selected a file");
 			buttonSelectFile.UseVisualStyleBackColor = true;
 			buttonSelectFile.Click += ButtonSelectFile_Click;
-			buttonSelectFile.Enter += SetStatusLabel_Enter;
-			buttonSelectFile.Leave += ClearStatusLabel_Leave;
-			buttonSelectFile.MouseEnter += SetStatusLabel_Enter;
-			buttonSelectFile.MouseLeave += ClearStatusLabel_Leave;
+			buttonSelectFile.Enter += SetStatusbar_Enter;
+			buttonSelectFile.Leave += ClearStatusBar_Leave;
+			buttonSelectFile.MouseEnter += SetStatusbar_Enter;
+			buttonSelectFile.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// buttonSelectFolder
 			// 
@@ -652,10 +640,10 @@
 			toolTip.SetToolTip(buttonSelectFolder, "Click to selected a folder");
 			buttonSelectFolder.UseVisualStyleBackColor = true;
 			buttonSelectFolder.Click += ButtonSelectFolder_Click;
-			buttonSelectFolder.Enter += SetStatusLabel_Enter;
-			buttonSelectFolder.Leave += ClearStatusLabel_Leave;
-			buttonSelectFolder.MouseEnter += SetStatusLabel_Enter;
-			buttonSelectFolder.MouseLeave += ClearStatusLabel_Leave;
+			buttonSelectFolder.Enter += SetStatusbar_Enter;
+			buttonSelectFolder.Leave += ClearStatusBar_Leave;
+			buttonSelectFolder.MouseEnter += SetStatusbar_Enter;
+			buttonSelectFolder.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// statusStrip
 			// 
@@ -726,10 +714,10 @@
 			labelOr.Size = new Size(18, 15);
 			labelOr.TabIndex = 3;
 			labelOr.Text = "or";
-			labelOr.Enter += SetStatusLabel_Enter;
-			labelOr.Leave += ClearStatusLabel_Leave;
-			labelOr.MouseEnter += SetStatusLabel_Enter;
-			labelOr.MouseLeave += ClearStatusLabel_Leave;
+			labelOr.Enter += SetStatusbar_Enter;
+			labelOr.Leave += ClearStatusBar_Leave;
+			labelOr.MouseEnter += SetStatusbar_Enter;
+			labelOr.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tableLayoutPanelSetDate
 			// 
@@ -777,10 +765,10 @@
 			labelNewCreationDate.TabIndex = 0;
 			labelNewCreationDate.Text = "Set new creation date (&4):";
 			labelNewCreationDate.TextAlign = ContentAlignment.TopCenter;
-			labelNewCreationDate.Enter += SetStatusLabel_Enter;
-			labelNewCreationDate.Leave += ClearStatusLabel_Leave;
-			labelNewCreationDate.MouseEnter += SetStatusLabel_Enter;
-			labelNewCreationDate.MouseLeave += ClearStatusLabel_Leave;
+			labelNewCreationDate.Enter += SetStatusbar_Enter;
+			labelNewCreationDate.Leave += ClearStatusBar_Leave;
+			labelNewCreationDate.MouseEnter += SetStatusbar_Enter;
+			labelNewCreationDate.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tableLayoutPanelSetLastWriteDateFormat
 			// 
@@ -834,10 +822,10 @@
 			labelNewWriteDate.TabIndex = 6;
 			labelNewWriteDate.Text = "Set new write date (&6):";
 			labelNewWriteDate.TextAlign = ContentAlignment.TopCenter;
-			labelNewWriteDate.Enter += SetStatusLabel_Enter;
-			labelNewWriteDate.Leave += ClearStatusLabel_Leave;
-			labelNewWriteDate.MouseEnter += SetStatusLabel_Enter;
-			labelNewWriteDate.MouseLeave += ClearStatusLabel_Leave;
+			labelNewWriteDate.Enter += SetStatusbar_Enter;
+			labelNewWriteDate.Leave += ClearStatusBar_Leave;
+			labelNewWriteDate.MouseEnter += SetStatusbar_Enter;
+			labelNewWriteDate.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelNewAccessDate
 			// 
@@ -855,10 +843,10 @@
 			labelNewAccessDate.TabIndex = 3;
 			labelNewAccessDate.Text = "Set new access date (&5):";
 			labelNewAccessDate.TextAlign = ContentAlignment.TopCenter;
-			labelNewAccessDate.Enter += SetStatusLabel_Enter;
-			labelNewAccessDate.Leave += ClearStatusLabel_Leave;
-			labelNewAccessDate.MouseEnter += SetStatusLabel_Enter;
-			labelNewAccessDate.MouseLeave += ClearStatusLabel_Leave;
+			labelNewAccessDate.Enter += SetStatusbar_Enter;
+			labelNewAccessDate.Leave += ClearStatusBar_Leave;
+			labelNewAccessDate.MouseEnter += SetStatusbar_Enter;
+			labelNewAccessDate.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tableLayoutPanelSetCreationDateFormat
 			// 
@@ -975,10 +963,10 @@
 			labelCreationDate.TabIndex = 0;
 			labelCreationDate.Text = "Creation date (&1):";
 			labelCreationDate.TextAlign = ContentAlignment.TopCenter;
-			labelCreationDate.Enter += SetStatusLabel_Enter;
-			labelCreationDate.Leave += ClearStatusLabel_Leave;
-			labelCreationDate.MouseEnter += SetStatusLabel_Enter;
-			labelCreationDate.MouseLeave += ClearStatusLabel_Leave;
+			labelCreationDate.Enter += SetStatusbar_Enter;
+			labelCreationDate.Leave += ClearStatusBar_Leave;
+			labelCreationDate.MouseEnter += SetStatusbar_Enter;
+			labelCreationDate.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelLastAccessDate
 			// 
@@ -995,10 +983,10 @@
 			labelLastAccessDate.TabIndex = 3;
 			labelLastAccessDate.Text = "Last access date (&2):";
 			labelLastAccessDate.TextAlign = ContentAlignment.TopCenter;
-			labelLastAccessDate.Enter += SetStatusLabel_Enter;
-			labelLastAccessDate.Leave += ClearStatusLabel_Leave;
-			labelLastAccessDate.MouseEnter += SetStatusLabel_Enter;
-			labelLastAccessDate.MouseLeave += ClearStatusLabel_Leave;
+			labelLastAccessDate.Enter += SetStatusbar_Enter;
+			labelLastAccessDate.Leave += ClearStatusBar_Leave;
+			labelLastAccessDate.MouseEnter += SetStatusbar_Enter;
+			labelLastAccessDate.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// labelLastWriteDate
 			// 
@@ -1015,10 +1003,10 @@
 			labelLastWriteDate.TabIndex = 6;
 			labelLastWriteDate.Text = "Last write date (&3):";
 			labelLastWriteDate.TextAlign = ContentAlignment.TopCenter;
-			labelLastWriteDate.Enter += SetStatusLabel_Enter;
-			labelLastWriteDate.Leave += ClearStatusLabel_Leave;
-			labelLastWriteDate.MouseEnter += SetStatusLabel_Enter;
-			labelLastWriteDate.MouseLeave += ClearStatusLabel_Leave;
+			labelLastWriteDate.Enter += SetStatusbar_Enter;
+			labelLastWriteDate.Leave += ClearStatusBar_Leave;
+			labelLastWriteDate.MouseEnter += SetStatusbar_Enter;
+			labelLastWriteDate.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// tableLayoutPanelGetLastAccessDateFormat
 			// 
@@ -1051,10 +1039,10 @@
 			labelPath.Size = new Size(34, 15);
 			labelPath.TabIndex = 0;
 			labelPath.Text = "&Path:";
-			labelPath.Enter += SetStatusLabel_Enter;
-			labelPath.Leave += ClearStatusLabel_Leave;
-			labelPath.MouseEnter += SetStatusLabel_Enter;
-			labelPath.MouseLeave += ClearStatusLabel_Leave;
+			labelPath.Enter += SetStatusbar_Enter;
+			labelPath.Leave += ClearStatusBar_Leave;
+			labelPath.MouseEnter += SetStatusbar_Enter;
+			labelPath.MouseLeave += ClearStatusBar_Leave;
 			// 
 			// FdtmForm
 			// 
