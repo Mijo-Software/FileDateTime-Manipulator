@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows7.0</TargetFramework>
     <RootNamespace>FileDateTime_Manipulator</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
@@ -12,11 +12,11 @@
     <ApplicationIcon>Resources\fdtm-logo-32.ico</ApplicationIcon>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Title>FileDateTime Manipulator</Title>
-    <Version>1.5.0.6</Version>
+    <Version>1.6.0.7</Version>
     <Company>Mijo Software</Company>
     <Authors>Michael Johne</Authors>
     <Description>FDTM changes the creation date, the last access date and the last write date of files and folders.</Description>
-    <Copyright>2018-2023 Mijo Software</Copyright>
+    <Copyright>2018-2025 Mijo Software</Copyright>
     <PackageProjectUrl>https://mijo-software.de/programme/system/filedatetime-manipulator/</PackageProjectUrl>
     <PackageIcon>fdtm-logo-32.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -78,6 +78,10 @@
 
   <ItemGroup>
     <Content Include="Resources\fdtm-logo-32.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="5.4.0" />
   </ItemGroup>
 
   <ItemGroup>
